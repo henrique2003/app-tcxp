@@ -5,9 +5,11 @@ interface HeaderProps {
 }
 
 export const StyledHeader = styled.header<HeaderProps>`
+  position: relative;
   width: 100%;
   top: 0;
   display: flex;
+  z-index: 5;
   padding: 30px 0;
   height: ${(props) => (props.navShow ? '100vh' : '')};
   background: transparent;
@@ -29,6 +31,7 @@ export const StyledHeader = styled.header<HeaderProps>`
     font-size: 19px;
     height: 35px;
     line-height: 35px;
+    cursor: pointer;
 
     a {
       text-decoration: none;
@@ -63,7 +66,7 @@ export const StyledHeader = styled.header<HeaderProps>`
         width: 30px;
         height: 4px;
         margin-top: 5px;
-        background: brown;
+        background: white;
         border-radius: 5px;
       }
 
@@ -94,10 +97,18 @@ export const StyledHeader = styled.header<HeaderProps>`
         display: flex;
         list-style: none;
         margin-top: 6px;
+        color: white;
 
         li {
+          letter-spacing: 1px;
+
+          &:nth-child(5) {
+            background: #f27f1b;
+            width: 120px;
+          }
+
           a {
-            color: black;
+            color: white;
           }
         }
       }
