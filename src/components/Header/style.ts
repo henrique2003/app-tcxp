@@ -30,6 +30,10 @@ export const StyledHeader = styled.header<HeaderProps>`
     height: 35px;
     line-height: 35px;
 
+    a {
+      text-decoration: none;
+    }
+
     &:nth-child(5) {
       background: #f27f1b;
       width: 100px;
@@ -90,6 +94,12 @@ export const StyledHeader = styled.header<HeaderProps>`
         display: flex;
         list-style: none;
         margin-top: 6px;
+
+        li {
+          a {
+            color: black;
+          }
+        }
       }
     }
 
@@ -197,6 +207,10 @@ export const StyledHeader = styled.header<HeaderProps>`
       li {
         margin-top: 15px;
         font-size: 24px;
+
+        a {
+          color: rgba(0, 0, 0, 0.7);
+        }
 
         &:nth-child(5) {
           margin-top: 20px;

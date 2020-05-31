@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { NavLink } from 'react-router-dom'
 import { IoMdClose } from 'react-icons/io'
 import { StyledHeader } from './style'
 
@@ -18,9 +18,9 @@ const Header: React.FC = () => {
         <div className="container">
           <h3>tcxp</h3>
           <ul>
-            <li>Home</li>
-            <li>Sobre</li>
-            <li>Dúvidas</li>
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/sobre">Sobre</NavLink></li>
+            <li><NavLink to="/duvidas">Dúvidas</NavLink></li>
             <li>Cadastre-se</li>
             <li>Entrar</li>
           </ul>
@@ -29,9 +29,9 @@ const Header: React.FC = () => {
       <div className="navbar_mobile">
         <h3>tcxp</h3>
         <ul>
-          <li>Home</li>
-          <li>Sobre</li>
-          <li>Dúvidas</li>
+          <li onClick={() => setNavShow(!NavShow)}><NavLink to="/">Home</NavLink></li>
+          <li onClick={() => setNavShow(!NavShow)}><NavLink to="/sobre">Sobre</NavLink></li>
+          <li onClick={() => setNavShow(!NavShow)}><NavLink to="/duvidas">Dúvidas</NavLink></li>
           <li>Cadastre-se</li>
           <li>Entrar</li>
         </ul>
