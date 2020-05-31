@@ -88,13 +88,16 @@ export const StyledHeader = styled.header<HeaderProps>`
       }
     }
 
+    /* Ipad */
     @media (max-width: 900px) {
       .toggle_show {
         display: block;
+        top: ${(props) => (props.navShow ? '0' : '10px')};
+        right: ${(props) => (props.navShow ? '30px' : '80px')};
       }
 
       .container {
-        padding: 0 100px;
+        padding: 0 60px;
 
         ul {
           display: none;
@@ -104,19 +107,21 @@ export const StyledHeader = styled.header<HeaderProps>`
   }
 
   .navbar_mobile {
+    /* Ipad */
     position: absolute;
     top: 0;
-    width: 350px;
+    width: 400px;
     height: 100vh;
     background: white;
     padding: 40px;
     transform-origin: left;
     transform: ${(props) => props.navShow ? 'rotateY(0deg)' : 'rotateY(-100deg)'};
+    box-shadow: 2px 0 5px rgba(0,0,0,.3);
     transition: all .7s cubic-bezier(.64,.89,.87,.67);
 
     h3 {
       font-family: "Lato", sans-serif;
-      font-size: 50px;
+      font-size: 55px;
       letter-spacing: 0px;
       color: #f27f1b;
       text-transform: uppercase;
@@ -126,15 +131,43 @@ export const StyledHeader = styled.header<HeaderProps>`
     ul {
       position: absolute;
       list-style: none;
-      top: 190px;
+      top: 350px;
       margin-top: 6px;
       color: rgba(0, 0, 0, 0.7);
 
       li {
-        margin-top: 10px;
+        margin-top: 15px;
+        font-size: 24px;
 
         &:nth-child(5) {
-          margin-top: 15px;
+          margin-top: 20px;
+          width: 150px;
+          height: 40px;
+          line-height: 38px;
+          letter-spacing: 2px;
+        }
+      }
+    }
+
+    /* Celphone */
+    @media(max-width: 600px) {
+      width: 250px;
+      padding: 35px 25px;
+
+      h3 {
+        font-size: 45px;
+        margin: 0 15px;
+      }
+
+      ul {
+        top: 190px;
+
+        li {
+          margin-top: 5px;
+
+          &:nth-child(5) {
+            margin-top: 10px;
+          }
         }
       }
     }
