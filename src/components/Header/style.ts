@@ -39,6 +39,11 @@ export const StyledHeader = styled.header<HeaderProps>`
     }
   }
 
+  /* Celhpone */
+  @media(max-width: 428px) {
+    padding: 20px 0;
+  }
+
   .navbar_web {
     position: relative;
     width: 100%;
@@ -106,20 +111,52 @@ export const StyledHeader = styled.header<HeaderProps>`
     }
 
     
-    /* Big celphones */
+    /* Big celphone */
     @media (max-width: 600px) {
       h3 {
         font-size: 40px;
       }
-
-      .align_justify {
-        width: 25px !important;
-        height: 3px !important;
-        margin-top: 4px !important;
-      }
       
       .toggle_show {
         right: ${(props) => (props.navShow ? '30px' : '45px')};
+
+        .align_justify {
+          width: 25px !important;
+          height: 3px !important;
+          margin-top: 4px !important;
+          border-radius: 20px;
+        }
+      }
+
+      .container {
+        padding: 0 45px;
+      }
+    }
+
+     
+    /* Celphone */
+    @media (max-width: 428px) {
+      .container {
+        padding: 0 35px !important;
+      }
+
+      h3 {
+        font-size: 40px;
+      }
+      
+      .toggle_show {
+        top: ${(props) => (props.navShow ? '0' : '8px')};
+        right: ${(props) => (props.navShow ? '15px' : '40px')};
+
+        .align_justify {
+          width: 25px !important;
+          height: 4px !important;
+          margin-top: 4px !important;
+        }
+
+        svg {
+          font-size: 40px;
+        }
       }
 
       .container {
@@ -139,7 +176,7 @@ export const StyledHeader = styled.header<HeaderProps>`
     transform-origin: left;
     transform: ${(props) => props.navShow ? 'rotateY(0deg)' : 'rotateY(-100deg)'};
     box-shadow: 2px 0 5px rgba(0,0,0,.3);
-    transition: all .7s cubic-bezier(.64,.89,.87,.67);
+    transition: all 1s cubic-bezier(.87,.67,.87,.67);
 
     h3 {
       font-family: "Lato", sans-serif;
@@ -192,6 +229,35 @@ export const StyledHeader = styled.header<HeaderProps>`
             margin-top: 15px;
             font-size: 21px;
             height: 35px;
+            line-height: 34px;
+          }
+        }
+      }
+    }
+
+    
+    /* Celphone */
+    @media(max-width: 428px) {
+      width: 250px;
+      padding: 25px 25px;
+
+      h3 {
+        font-size: 45px;
+        margin: 0 15px;
+      }
+
+      ul {
+        top: 230px;
+
+        li {
+          margin-top: 4px;
+          font-size: 19px;
+
+          &:nth-child(5) {
+            margin-top: 15px;
+            font-size: 18px;
+            height: 35px;
+            width: 120px;
             line-height: 34px;
           }
         }
