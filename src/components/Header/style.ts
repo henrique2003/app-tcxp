@@ -104,6 +104,28 @@ export const StyledHeader = styled.header<HeaderProps>`
         }
       }
     }
+
+    
+    /* Big celphones */
+    @media (max-width: 600px) {
+      h3 {
+        font-size: 40px;
+      }
+
+      .align_justify {
+        width: 25px !important;
+        height: 3px !important;
+        margin-top: 4px !important;
+      }
+      
+      .toggle_show {
+        right: ${(props) => (props.navShow ? '30px' : '45px')};
+      }
+
+      .container {
+        padding: 0 45px;
+      }
+    }
   }
 
   .navbar_mobile {
@@ -149,24 +171,28 @@ export const StyledHeader = styled.header<HeaderProps>`
       }
     }
 
-    /* Celphone */
+    /* Big celphone */
     @media(max-width: 600px) {
-      width: 250px;
+      width: 300px;
       padding: 35px 25px;
 
       h3 {
-        font-size: 45px;
+        font-size: 50px;
         margin: 0 15px;
       }
 
       ul {
-        top: 190px;
+        top: 300px;
 
         li {
           margin-top: 5px;
+          font-size: 22px;
 
           &:nth-child(5) {
-            margin-top: 10px;
+            margin-top: 15px;
+            font-size: 21px;
+            height: 35px;
+            line-height: 34px;
           }
         }
       }
