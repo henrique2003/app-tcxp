@@ -112,7 +112,7 @@ export const StyledHeader = styled.header<HeaderProps>`
     padding: 40px;
     transform-origin: left;
     transform: ${(props) => props.navShow ? 'rotateY(0deg)' : 'rotateY(-100deg)'};
-    transition: all 0.6s ease;
+    transition: all .7s cubic-bezier(.64,.89,.87,.67);
 
     h3 {
       font-family: "Lato", sans-serif;
