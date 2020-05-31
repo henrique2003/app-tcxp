@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 interface HeaderProps {
   navShow: Boolean
@@ -10,8 +10,11 @@ export const StyledHeader = styled.header<HeaderProps>`
   display: flex;
   padding: 30px 0;
   height: ${(props) => (props.navShow ? '100vh' : '')};
-  background: ${(props) => (props.navShow ? 'rgba(0,0,0,0.5)' : 'transparent')};
-  transition: all 0.4s ease;
+  background: transparent;
+  ${(props) => (props.navShow && css`
+    background: rgba(0,0,0,0.5) !important;
+    transition: all 0.4s ease;
+  `)};
 
   h3 {
     font-family: "Lato", sans-serif;
