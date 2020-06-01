@@ -53,11 +53,11 @@ export const StyledIntroduction = styled.div<Introduction>`
         text-decoration: none;
         border-radius: 5px;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-        transition: all .3s ease;
+        transition: all 0.3s ease;
 
         &:hover {
           background: #d46e16;
-          transition: all .3s ease;
+          transition: all 0.3s ease;
         }
       }
     }
@@ -120,7 +120,7 @@ export const StyledIntroduction = styled.div<Introduction>`
                   display: none;
                 }
               }
-              
+
               svg {
                 visibility: ${(props) =>
                   props.useTerms ? 'visible' : 'hidden'};
@@ -147,11 +147,11 @@ export const StyledIntroduction = styled.div<Introduction>`
               border: none;
               cursor: pointer;
               box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-              transition: all .4s ease;
+              transition: all 0.4s ease;
 
               &:hover {
                 transform: translateX(5px);
-                transition: all .4s ease;
+                transition: all 0.4s ease;
               }
 
               img {
@@ -166,7 +166,7 @@ export const StyledIntroduction = styled.div<Introduction>`
   }
 
   /* Tablets */
-  @media(max-width: 900px) {
+  @media (max-width: 900px) {
     height: auto;
 
     .row {
@@ -240,9 +240,8 @@ export const StyledIntroduction = styled.div<Introduction>`
     }
   }
 
-  
-  /* Tablets */
-  @media(max-width: 600px) {
+  /* Big celphones */
+  @media (max-width: 600px) {
     .row {
       .wrapper_content {
         margin-top: 25px;
@@ -296,6 +295,77 @@ export const StyledIntroduction = styled.div<Introduction>`
               .wrapper_checkbox {
                 label {
                   font-size: 16px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Big celphones */
+  @media (max-width: 428px) {
+    .row {
+      .wrapper_content {
+        margin-top: 25px;
+
+        h5 {
+          font-size: 20px;
+        }
+
+        p {
+          margin-top: 15px;
+          font-size: 16px;
+        }
+
+        a {
+          font-size: 15px;
+        }
+      }
+
+      .wrapper_form {
+        form {
+          padding: 30px;
+
+          .wrapper_title {
+            margin-bottom: 4px;
+
+            p {
+              font-size: 21px;
+            }
+          }
+
+          .wrapper_fields {
+            input[type="text"],
+            input[type="password"],
+            input[type="email"] {
+              margin-top: 15px;
+              padding: 5px 20px;
+              font-size: 14px;
+            }
+
+            .wrapper_submit {
+              button {
+                padding: 0 20px;
+
+                img {
+                  margin-top: 3px;
+                  width: 26px;
+                  height: 20px;
+                }
+              }
+
+              .wrapper_checkbox {
+                line-height: 30px;
+
+                .field_checbox {
+                  padding: 1px 13px;
+                  margin-right: 10px;
+                }
+
+                label {
+                  font-size: 14px;
                 }
               }
             }

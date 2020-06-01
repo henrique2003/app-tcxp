@@ -165,6 +165,7 @@ export const StyledHeader = styled.header<HeaderProps>`
 
       h3 {
         font-size: 40px;
+        margin: 0;
       }
       
       .toggle_show {
