@@ -47,12 +47,6 @@ export const StyledIntroduction = styled.div<Introduction>`
       text-decoration: none;
       border-radius: 5px;
       box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-      transition: all 0.3s ease;
-
-      &:hover {
-        background: #d46e16;
-        transition: all 0.3s ease;
-      }
     }
   }
 
