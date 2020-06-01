@@ -133,4 +133,85 @@ export const StyledCard = styled.div<Props>`
       }
     }
   }
+
+  /* Reduce more cards */
+  @media (max-width: 900px) {
+    height: 400px;
+    width: 250px;
+
+    &:nth-child(3) {
+      .content {
+        h5 {
+          font-size: 21px;
+        }
+
+        p {
+          font-size: 17px;
+        }
+      }
+    }
+
+    &:nth-child(2),
+    &:nth-child(4) {
+      height: 330px;
+      width: 200px;
+      margin-top: 44px;
+    }
+
+    .content {
+      padding-right: 0;
+      
+      h5 {
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 16px;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  /* Reduce more cards */
+  @media (max-width: 600px) {
+    margin-top: 44px !important;
+
+    .content {
+      h5 {
+        /* font-size: 18px; */
+      }
+
+      p {
+
+      }
+    }
+
+    &:nth-child(3) {
+      order: 1;
+      margin-top: 0 !important;
+      position: static;
+      margin: 0 auto;
+      transform: none;
+      height: 400px;
+      max-width: 500px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(4) {
+      position: static;
+      margin: 0 auto;
+      transform: none;
+      height: 400px;
+      width: 255px;
+      max-width: 500px;
+    }
+
+    &:nth-child(2) {
+      order: 2;
+    }
+
+    &:nth-child(4) {
+      order: 3;
+    }
+  }
 `

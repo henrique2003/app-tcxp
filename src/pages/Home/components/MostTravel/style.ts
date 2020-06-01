@@ -81,4 +81,9 @@ export const StyledMostTravel = styled.div`
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
+
+  /* Bid celphones */
+  @media(max-width: 600px) {
+    flex-direction: column;
+  }
 `
