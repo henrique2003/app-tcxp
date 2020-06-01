@@ -172,19 +172,9 @@ export const StyledCard = styled.div<Props>`
     }
   }
 
-  /* Reduce more cards */
+  /* Big celphones */
   @media (max-width: 600px) {
     margin-top: 44px !important;
-
-    .content {
-      h5 {
-        /* font-size: 18px; */
-      }
-
-      p {
-
-      }
-    }
 
     &:nth-child(3) {
       order: 1;
@@ -212,6 +202,36 @@ export const StyledCard = styled.div<Props>`
 
     &:nth-child(4) {
       order: 3;
+    }
+  }
+
+  /* Celphones */
+  @media (max-width: 428px) {
+    margin-top: 44px !important;
+
+    &:nth-child(3) {
+      .content {
+        h5 {
+          font-size: 18px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+      }
+    }
+
+    &:nth-child(2),
+    &:nth-child(4) {
+      .content {
+        h5 {
+          font-size: 18px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+      }
     }
   }
 `

@@ -34,6 +34,7 @@ export const StyledMostTravel = styled.div`
   /* Tablets */
   @media (max-width: 900px) {
     margin: 30px 0;
+    padding-bottom: 400px;
 
     .most_travel_header {
       h3 {
@@ -49,6 +50,8 @@ export const StyledMostTravel = styled.div`
 
   /* Big celphones */
   @media (max-width: 600px) {
+    padding-bottom: 0;
+
     .most_travel_header {
       h3 {
         font-size: 28px;
@@ -61,7 +64,6 @@ export const StyledMostTravel = styled.div`
     }
   }
 
-  
   /* Celphones */
   @media (max-width: 428px) {
     .most_travel_header {
@@ -83,7 +85,7 @@ export const Row = styled.div`
   flex-direction: row;
 
   /* Bid celphones */
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     flex-direction: column;
   }
 `
