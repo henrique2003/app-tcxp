@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom'
 import ArrowLeft from '../../../../assets/icons/arrow-right.png'
 import Image from '../../../../assets/images/home/home_introduction.png'
 import { StyledIntroduction } from './style'
-import { Container } from '../../../../styles/bases'
+import { Container } from '../../../../styles'
 import { FcCheckmark } from 'react-icons/fc'
-import { BsArrowRight } from 'react-icons/bs'
 
 const Introduction: React.FC = () => {
   const [UseTerms, setUseTerms] = useState(false)

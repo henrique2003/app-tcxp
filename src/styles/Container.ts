@@ -5,12 +5,12 @@ export const Container = styled.div`
 
   /* Ipad */
   @media(max-width: 900px) {
-    padding: 0 60px;
+    padding: 0 90px;
   }
 
   /* Big celphone */
   @media(max-width: 600px) {
-    padding: 0 45px;
+    padding: 0 55px;
   }
 
   /* Celphone */

@@ -116,15 +116,17 @@ export const StyledHeader = styled.header<HeaderProps>`
 
     /* Ipad */
     @media (max-width: 900px) {
+      h3 {
+        margin-left: 5px;
+      }
+
       .toggle_show {
         display: block;
         top: ${(props) => (props.navShow ? '0' : '10px')};
-        right: ${(props) => (props.navShow ? '30px' : '80px')};
+        right: ${(props) => (props.navShow ? '30px' : '95px')};
       }
 
       .container {
-        padding: 0 60px;
-
         ul {
           display: none;
         }
@@ -139,7 +141,7 @@ export const StyledHeader = styled.header<HeaderProps>`
       }
       
       .toggle_show {
-        right: ${(props) => (props.navShow ? '30px' : '45px')};
+        right: ${(props) => (props.navShow ? '30px' : '65px')};
 
         .align_justify {
           width: 25px !important;

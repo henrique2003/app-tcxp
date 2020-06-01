@@ -164,4 +164,144 @@ export const StyledIntroduction = styled.div<Introduction>`
       }
     }
   }
+
+  /* Tablets */
+  @media(max-width: 900px) {
+    height: auto;
+
+    .row {
+      margin-top: 15vh;
+      flex-direction: column;
+
+      .wrapper_content {
+        margin-top: 30px;
+        margin-left: 0;
+
+        h5 {
+          font-size: 23px;
+          width: 100%;
+          max-width: 600px;
+        }
+
+        p {
+          margin-top: 15px;
+          font-size: 17px;
+          width: 100%;
+          max-width: 550px;
+          margin-bottom: 35px;
+        }
+
+        a {
+          font-size: 17px;
+        }
+      }
+
+      .wrapper_form {
+        margin-top: 80px;
+        margin-bottom: 60px;
+
+        form {
+          padding: 35px 50px;
+          max-width: 100%;
+
+          .wrapper_title {
+            margin-bottom: 5px;
+
+            p {
+              font-size: 23px;
+            }
+          }
+
+          .wrapper_fields {
+            input[type="text"],
+            input[type="password"],
+            input[type="email"] {
+              padding: 6px 15px;
+              margin-top: 23px;
+            }
+
+            .wrapper_submit {
+              margin-left: 2px;
+              margin-right: 0px;
+              margin-top: 25px;
+
+              button {
+                padding: 2px 25px;
+
+                img {
+                  width: 35px;
+                  margin-top: 2px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  
+  /* Tablets */
+  @media(max-width: 600px) {
+    .row {
+      .wrapper_content {
+        margin-top: 25px;
+
+        h5 {
+          font-size: 22px;
+        }
+
+        p {
+          margin-top: 15px;
+          font-size: 17px;
+        }
+
+        a {
+          font-size: 16px;
+        }
+      }
+
+      .wrapper_form {
+        margin-top: 65px;
+        margin-bottom: 55px;
+
+        form {
+          padding: 35px 45px;
+
+          .wrapper_title {
+            margin-bottom: 4px;
+
+            p {
+              font-size: 22px;
+            }
+          }
+
+          .wrapper_fields {
+            input[type="text"],
+            input[type="password"],
+            input[type="email"] {
+              margin-top: 22px;
+            }
+
+            .wrapper_submit {
+              button {
+                padding: 0 20px;
+
+                img {
+                  width: 33px;
+                  height: 23px;
+                }
+              }
+
+              .wrapper_checkbox {
+                label {
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 `
