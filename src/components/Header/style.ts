@@ -82,7 +82,7 @@ export const StyledHeader = styled.header<HeaderProps>`
 
     h3 {
       display: ${(props) => (props.navShow ? 'none' : 'block')};
-      font-size: 45px;
+      font-size: 50px;
       letter-spacing: 0px;
     }
 
@@ -96,7 +96,7 @@ export const StyledHeader = styled.header<HeaderProps>`
       ul {
         display: flex;
         list-style: none;
-        margin-top: 6px;
+        margin-top: 8px;
         color: white;
 
         li {
