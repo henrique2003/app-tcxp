@@ -374,4 +374,16 @@ export const StyledIntroduction = styled.div<Introduction>`
       }
     }
   }
+
+  
+  /* Big celphones */
+  @media (max-width: 350px) {
+    .row {
+      .wrapper_form {
+        form {
+          padding: 30px 20px;
+        }
+      }
+    }
+  }
 `
