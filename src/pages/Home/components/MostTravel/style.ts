@@ -38,4 +38,35 @@ export const StyledMostTravel = styled.div`
       }
     }
   }
+
+  /* Big celphones */
+  @media (max-width: 600px) {
+    .most_travel_header {
+      h3 {
+        font-size: 28px;
+      }
+
+      p {
+        margin-top: 17px !important;
+        font-size: 17px;
+      }
+    }
+  }
+
+  
+  /* Celphones */
+  @media (max-width: 428px) {
+    .most_travel_header {
+      margin: 30px 0;
+
+      h3 {
+        font-size: 25px;
+      }
+
+      p {
+        margin-top: 18px !important;
+        font-size: 15px;
+      }
+    }
+  }
 `
