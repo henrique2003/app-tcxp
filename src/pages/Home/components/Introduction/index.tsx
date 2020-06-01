@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import ArrowLeft from '../../../../assets/icons/arrow-right.png'
 import Image from '../../../../assets/images/home/home_introduction.png'
-import { StyledIntroduction } from './style'
+import { StyledIntroduction, Row } from './style'
 import { Container } from '../../../../styles'
 import { FcCheckmark } from 'react-icons/fc'
 
@@ -12,7 +12,7 @@ const Introduction: React.FC = () => {
   return (
     <StyledIntroduction image={Image} useTerms={UseTerms}>
       <Container>
-        <div className="row">
+        <Row>
           <div className="wrapper_content">
             <h5>Querendo viajar para algum lugar mas não tem ninguém para te acompanhar?</h5>
             <p>Aqui na tcxp você conhece pessoas novas e com os mesmos interesses que você. Crie grupos de viagens e chame pessoas para fazerem parte dele.</p>
@@ -63,7 +63,7 @@ const Introduction: React.FC = () => {
               </div>
             </form>
           </div>
-        </div>
+        </Row>
       </Container>
     </StyledIntroduction>
   )
