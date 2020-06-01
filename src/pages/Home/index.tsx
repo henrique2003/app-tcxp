@@ -1,10 +1,11 @@
 import React from 'react'
-import { Introduction } from './components'
+import { Introduction, MostTravel } from './components'
 
 const Home: React.FC = () => {
   return (
     <>
       <Introduction />
+      <MostTravel />
     </>
   )
 }

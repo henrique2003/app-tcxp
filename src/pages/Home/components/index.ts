@@ -1,5 +1,7 @@
 import Introduction from './Introduction'
+import MostTravel from './MostTravel'
 
 export {
-  Introduction
+  Introduction,
+  MostTravel
 }
