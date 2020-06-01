@@ -8,10 +8,10 @@ export const StyledMostTravel = styled.div`
     width: 100%;
 
     h3 {
-      font-family: 'Open Sans', sans-serif;
+      font-family: "Open Sans", sans-serif;
       font-weight: 400;
       font-size: 32px;
-      color: rgba(0,0,0,0.7);
+      color: rgba(0, 0, 0, 0.7);
     }
 
     p {
@@ -20,6 +20,22 @@ export const StyledMostTravel = styled.div`
       font-size: 19px;
       max-width: 550px;
       margin: 0 auto;
+    }
+  }
+
+  /* Tablets */
+  @media (max-width: 900px) {
+    margin: 30px 0;
+
+    .most_travel_header {
+      h3 {
+        font-size: 30px;
+      }
+
+      p {
+        margin-top: 20px !important;
+        font-size: 18px;
+      }
     }
   }
 `
