@@ -53,6 +53,12 @@ export const StyledIntroduction = styled.div<Introduction>`
         text-decoration: none;
         border-radius: 5px;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        transition: all .3s ease;
+
+        &:hover {
+          background: #d46e16;
+          transition: all .3s ease;
+        }
       }
     }
 
@@ -141,6 +147,12 @@ export const StyledIntroduction = styled.div<Introduction>`
               border: none;
               cursor: pointer;
               box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+              transition: all .4s ease;
+
+              &:hover {
+                transform: translateX(5px);
+                transition: all .4s ease;
+              }
 
               img {
                 width: 38px;
