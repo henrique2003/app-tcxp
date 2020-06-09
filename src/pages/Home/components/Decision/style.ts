@@ -45,4 +45,60 @@ export const StyledDecision = styled.div<Props>`
       cursor: pointer;
     }
   }
+
+  /* Ipad */
+  @media(max-width: 768px) {
+    .content {
+      max-width: 450px;
+
+      h4 {
+        font-size: 24px;
+      }
+      
+      p {
+        font-size: 18px;
+        margin-top: 15px;
+      }
+
+      button {
+        margin-top: 25px;
+        padding: 6px 30px;
+        font-size: 17px;
+      }
+    }
+  }
+
+  /* Celphone */
+  @media(max-width: 500px) {
+    padding: 0 20px;
+    padding-top: 25px;
+    padding-bottom: 40px;
+
+    .content {
+      h4 {
+        font-size: 23px;
+      }
+      
+      p {
+        font-size: 17px;
+      }
+    }
+  }
+
+  /* Celphone */
+  @media(max-width: 428px) {
+    .content {
+      h4 {
+        font-size: 23px;
+      }
+      
+      p {
+        font-size: 17px;
+      }
+
+      button {
+        font-size: 16px;
+      }
+    }
+  }
 `
