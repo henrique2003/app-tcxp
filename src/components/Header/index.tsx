@@ -3,7 +3,6 @@ import { connect, ConnectedProps } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { IoMdClose } from 'react-icons/io'
 import { StyledHeader } from './style'
-import { RootReducer } from '../../store/reducers'
 import { changeNavbar } from '../../store/actions/navbar'
 import { Dispatch } from 'redux'
 

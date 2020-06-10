@@ -3,10 +3,11 @@ import styled from 'styled-components'
 interface Introduction {
   useTerms: boolean
   image: string
+  isNav: boolean
 }
 
 export const StyledIntroduction = styled.div<Introduction>`
-  margin-top: -120px;
+  margin-top: ${props => props.isNav ? '0' : '-120px'};
   display: block;
   background-image: url(${(props) => props.image});
   background-size: cover;

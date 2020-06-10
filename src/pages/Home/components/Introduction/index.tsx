@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { connect, ConnectedProps } from 'react-redux'
 import ArrowLeft from '../../../../assets/icons/arrow-right.png'
 import Image from '../../../../assets/images/home/home_introduction.png'
 import { StyledIntroduction, Row } from './style'
 import { Container } from '../../../../styles'
 import { FcCheckmark } from 'react-icons/fc'
 
-const Introduction: React.FC = () => {
-  const [UseTerms, setUseTerms] = useState(false)
+type Props = PropsFromRedux
 
+const Introduction: React.FC<Props> = ({ navbar }) => {
+  const [UseTerms, setUseTerms] = useState(false)
   return (
-    <StyledIntroduction image={Image} useTerms={UseTerms}>
+    <StyledIntroduction image={Image} useTerms={UseTerms} isNav={navbar}>
       <Container>
         <Row>
           <div className="wrapper_content">
@@ -69,4 +71,16 @@ const Introduction: React.FC = () => {
   )
 }
 
-export default Introduction
+interface RootState {
+  navbar: boolean
+}
+
+const mapState = (state: RootState): RootState => ({
+  navbar: state.navbar
+})
+
+const connector = connect(mapState)
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+export default connector(Introduction)
