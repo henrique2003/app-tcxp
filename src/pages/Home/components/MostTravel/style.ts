@@ -11,23 +11,9 @@ export const StyledMostTravel = styled.div`
     margin: 50px 0;
   }
 
-  .most_travel_header {
-    text-align: center;
-    width: 100%;
-
-    h3 {
-      font-family: "Open Sans", sans-serif;
-      font-weight: 400;
-      font-size: 32px;
-      color: rgba(0, 0, 0, 0.7);
-    }
-
+  header {
     p {
       margin-top: 20px !important;
-      color: #808080;
-      font-size: 19px;
-      max-width: 550px;
-      margin: 0 auto;
     }
   }
 
@@ -36,13 +22,8 @@ export const StyledMostTravel = styled.div`
     margin: 30px 0;
     padding-bottom: 400px;
 
-    .most_travel_header {
-      h3 {
-        font-size: 30px;
-      }
-
+    header {
       p {
-        margin-top: 20px !important;
         font-size: 18px;
       }
     }
@@ -52,30 +33,20 @@ export const StyledMostTravel = styled.div`
   @media (max-width: 600px) {
     padding-bottom: 0;
 
-    .most_travel_header {
-      h3 {
-        font-size: 28px;
-      }
-
+    header {
       p {
         margin-top: 17px !important;
-        font-size: 17px;
       }
     }
   }
 
   /* Celphones */
   @media (max-width: 428px) {
-    .most_travel_header {
+    header {
       margin: 30px 0;
-
-      h3 {
-        font-size: 25px;
-      }
 
       p {
         margin-top: 18px !important;
-        font-size: 15px;
       }
     }
   }

@@ -3,7 +3,7 @@ import React from 'react'
 import Card from './components/Card'
 
 import { StyledMostTravel, Row } from './style'
-import { Container } from '../../../../styles'
+import { Container, Title, Subtitle, HeaderTitle } from '../../../../styles'
 
 import India from '../../../../assets/images/home/cards/india.png'
 import Paris from '../../../../assets/images/home/cards/paris.png'
@@ -15,10 +15,10 @@ const MostTravel: React.FC = () => {
   return (
     <StyledMostTravel>
       <Container>
-        <div className="most_travel_header">
-          <h3>Lugares mais visitados</h3>
-          <p>Pesquisas recentes montram que estes são os lugares onde as pessoas mais visitam no mundo inteiro.</p>
-        </div>
+        <HeaderTitle>
+          <Title>Lugares mais visitados</Title>
+          <Subtitle>Pesquisas recentes montram que estes são os lugares onde as pessoas mais visitam no mundo inteiro.</Subtitle>
+        </HeaderTitle>
         <div className="most_travel_body">
           <Row>
             <Card
