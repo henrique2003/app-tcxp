@@ -5,7 +5,7 @@ interface HeaderProps {
 }
 
 export const StyledHeader = styled.header<HeaderProps>`
-  position: relative;
+  position: ${(props) => (props.navShow ? 'fixed' : 'relative')};
   width: 100%;
   top: 0;
   display: flex;
@@ -72,9 +72,9 @@ export const StyledHeader = styled.header<HeaderProps>`
 
       svg {
         display: ${(props) => (props.navShow ? 'block' : 'none')};
-        position: absolute;
-        top: 0;
-        right: 0;
+        position: fixed;
+        top: 30px;
+        right: 30px;
         color: white;
         font-size: 55px;
       }
@@ -191,7 +191,7 @@ export const StyledHeader = styled.header<HeaderProps>`
 
   .navbar_mobile {
     /* Ipad */
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 400px;
     height: 100vh;
