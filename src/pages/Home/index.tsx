@@ -1,5 +1,5 @@
 import React from 'react'
-import { Introduction, MostTravel, Decision, ThreeFeatures } from './components'
+import { Introduction, MostTravel, Decision, ThreeFeatures, Comments } from './components'
 
 const Home: React.FC = () => {
   return (
@@ -8,6 +8,7 @@ const Home: React.FC = () => {
       <MostTravel />
       <Decision />
       <ThreeFeatures />
+      <Comments />
     </>
   )
 }

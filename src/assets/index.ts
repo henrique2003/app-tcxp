@@ -14,6 +14,10 @@ import NewYork from './images/home/cards/newyork.png'
 import Paris from './images/home/cards/paris.png'
 import Russia from './images/home/cards/russia.png'
 import Santorini from './images/home/cards/santorini.png'
+// Comments
+import PersonOne from './images/home/comments/person-one.png'
+import PersonTwo from './images/home/comments/person-two.png'
+import PersonThree from './images/home/comments/person-three.png'
 
 export {
   ArrowRight,
@@ -26,5 +30,8 @@ export {
   NewYork,
   Paris,
   Russia,
-  Santorini
+  Santorini,
+  PersonOne,
+  PersonTwo,
+  PersonThree
 }
