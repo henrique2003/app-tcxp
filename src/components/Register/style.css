@@ -1,0 +1,26 @@
+.Overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0 30px;
+  opacity: 0;
+  transition: all .8s ease;
+}
+
+.Overlay.Show {
+  opacity: 1;
+  transition: all .8s ease;
+}
+
+.Modal {
+  background: white;
+  border-radius: 10px;
+  margin: 30px auto;
+  height: 91.5vh;
+  max-width: 1050px;
+}
+
