@@ -1,7 +1,7 @@
 import { changeNavbar } from './navbar'
-import { changeRegister } from './register'
+import { changeModal } from './modal'
 
 export {
-  changeRegister,
+  changeModal,
   changeNavbar
 }

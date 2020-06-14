@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 import navbar from './navbar'
-import register from './register'
+import modal from './modal'
 
 export const rootReducer = combineReducers({
   navbar,
-  register
+  modal
 })
 
 export type RootReducer = ReturnType<typeof rootReducer>

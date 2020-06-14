@@ -1,7 +1,7 @@
 import Header from './Header'
-import Register from './Register'
+import Modal from './Modal'
 
 export {
   Header,
-  Register
+  Modal
 }

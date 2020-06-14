@@ -20,7 +20,7 @@ import PersonTwo from './images/home/comments/person-two.png'
 import PersonThree from './images/home/comments/person-three.png'
 
 // Login
-import BridgeResgister from './images/register/bridge-register.png'
+import BridgeResgister from './images/register/bridge-register.svg'
 
 export {
   ArrowRight,

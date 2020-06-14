@@ -5,7 +5,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.4);
   padding: 0 30px;
   opacity: 0;
   transition: all .8s ease;
@@ -18,7 +18,7 @@
 
 .Modal {
   background: white;
-  border-radius: 10px;
+  border-radius: 15px;
   margin: 30px auto;
   height: 91.5vh;
   max-width: 1050px;

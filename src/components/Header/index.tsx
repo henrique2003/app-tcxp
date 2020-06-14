@@ -3,12 +3,17 @@ import { connect, ConnectedProps } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { IoMdClose } from 'react-icons/io'
 import { StyledHeader } from './style'
-import { changeNavbar, changeRegister } from '../../store/actions'
+import { changeNavbar, changeModal } from '../../store/actions'
+import { StateDefault, Register, Login } from '../../store/actions/modal/types'
 import { Dispatch } from 'redux'
 
 type Props = PropsFromRedux
 
-const Header: React.FC<Props> = ({ changeNavbar, changeRegister, navbar, register }) => {
+const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) => {
+  const payloadModalRegister: StateDefault = {
+    open: !modal.open,
+    component: 'Register'
+  }
   return (
     <StyledHeader navShow={navbar}>
       <div className="navbar_web">
@@ -24,7 +29,7 @@ const Header: React.FC<Props> = ({ changeNavbar, changeRegister, navbar, registe
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/sobre">Sobre</NavLink></li>
             <li><NavLink to="/duvidas">Dúvidas</NavLink></li>
-            <li onClick={() => changeRegister(!register)}>Cadastre-se</li>
+            <li onClick={() => changeModal(payloadModalRegister)}>Cadastre-se</li>
             <li>Entrar</li>
           </ul>
         </div>
@@ -35,7 +40,7 @@ const Header: React.FC<Props> = ({ changeNavbar, changeRegister, navbar, registe
           <li onClick={() => changeNavbar(!navbar)}><NavLink to="/">Home</NavLink></li>
           <li onClick={() => changeNavbar(!navbar)}><NavLink to="/sobre">Sobre</NavLink></li>
           <li onClick={() => changeNavbar(!navbar)}><NavLink to="/duvidas">Dúvidas</NavLink></li>
-          <li onClick={() => changeRegister(!register)}>Cadastre-se</li>
+          <li onClick={() => changeModal(payloadModalRegister)}>Cadastre-se</li>
           <li>Entrar</li>
         </ul>
       </div>
@@ -45,22 +50,25 @@ const Header: React.FC<Props> = ({ changeNavbar, changeRegister, navbar, registe
 
 interface RootState {
   navbar: boolean
-  register: boolean
+  modal: {
+    open: boolean
+    component: typeof Register | typeof Login
+  }
 }
 
 interface DispatchProps {
   changeNavbar: (payload: boolean) => void
-  changeRegister: (apyload: boolean) => void
+  changeModal: (payload: StateDefault) => void
 }
 
 const mapState = (state: RootState): RootState => ({
   navbar: state.navbar,
-  register: state.register
+  modal: state.modal
 })
 
 const mapDispatch = (dispatch: Dispatch): DispatchProps => ({
   changeNavbar: (payload) => dispatch(changeNavbar(payload)),
-  changeRegister: (payload) => dispatch(changeRegister(payload))
+  changeModal: (payload) => dispatch(changeModal(payload))
 })
 
 const connector = connect(mapState, mapDispatch)
