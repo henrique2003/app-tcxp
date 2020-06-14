@@ -19,6 +19,9 @@ import PersonOne from './images/home/comments/person-one.png'
 import PersonTwo from './images/home/comments/person-two.png'
 import PersonThree from './images/home/comments/person-three.png'
 
+// Login
+import BridgeResgister from './images/register/bridge-register.svg'
+
 export {
   ArrowRight,
   Group,
@@ -33,5 +36,6 @@ export {
   Santorini,
   PersonOne,
   PersonTwo,
-  PersonThree
+  PersonThree,
+  BridgeResgister
 }
