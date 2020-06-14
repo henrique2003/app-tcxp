@@ -1,6 +1,8 @@
 import React from 'react'
-import Routes from './routes/index'
+import { BrowserRouter, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
+import { Header, Modal } from './components'
+import Routes from './routes'
 import store from './store'
 
 import './global.css'
@@ -8,7 +10,13 @@ import './global.css'
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <Routes />
+      <BrowserRouter>
+        <Header />
+        <Modal />
+        <Switch>
+          <Routes />
+        </Switch>
+      </BrowserRouter>
     </Provider>
   )
 }
