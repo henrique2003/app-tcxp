@@ -9,6 +9,9 @@
   padding: 0 30px;
   opacity: 0;
   transition: all .8s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Overlay.Show {
@@ -19,8 +22,7 @@
 .Modal {
   background: white;
   border-radius: 15px;
-  margin: 30px auto;
-  height: 91.5vh;
   max-width: 1050px;
+  flex: 1;
 }
 

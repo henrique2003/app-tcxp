@@ -5,7 +5,7 @@ interface CheckBoxProps {
 }
 
 export const Content = styled.div`
-  padding: 20px;
+  padding: 20px 40px;
   
   .close {
     position: absolute;
@@ -37,7 +37,7 @@ export const Content = styled.div`
     margin-top: 10px;
 
     form {
-      max-width: 330px;
+      max-width: 310px;
       margin: 0 auto;
 
       input {
@@ -72,6 +72,7 @@ export const Content = styled.div`
         font-weight: 300;
         cursor: pointer;
         text-decoration: none;
+        margin-bottom: 0;
       }
     }
 
@@ -83,10 +84,106 @@ export const Content = styled.div`
       background: white;
       text-align: center;
       width: 100%;
-      margin-top: 15px;
+      margin-top: 25px;
+      margin-bottom: 30px;
       font-family: 'Roboto', sans-serif;
       font-weight: 300;
       cursor: pointer;
+    }
+  }
+
+  // Celphones
+  @media(max-width: 470px) {
+    padding: 20px 40px;
+    
+    .close {
+      font-size: 55px;
+    }
+
+    header {
+      margin-top: 30px;
+      
+      h3 {
+        font-size: 30px;
+      }
+    }
+
+    section {
+      margin-top: 10px;
+
+      form {
+        max-width: 310px;
+
+        input {
+          margin-top: 15px;
+          padding: 7px 20px;
+        }
+
+        svg {
+          font-size: 20px;
+        }
+
+        button {
+          font-size: 17px;
+          padding: 8px 0;
+          margin-top: 20px;
+        }
+      }
+
+      button {
+        font-size: 15px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  // Small Celphones
+  @media(max-width: 400px) {
+    padding: 20px 30px;
+    
+    .close {
+      font-size: 50px;
+      top: 5px;
+      right: 5px;
+    }
+
+    header {
+      margin-top: 25px;
+      
+      h3 {
+        font-size: 27px;
+      }
+    }
+
+    section {
+      margin-top: 20px;
+
+      form {
+        max-width: 320px;
+
+        input {
+          margin-top: 15px;
+          padding: 6px 15px;
+          font-size: 15px;
+        }
+
+        svg {
+          font-size: 17px;
+        }
+
+        button {
+          font-size: 15px;
+          padding: 6px 0;
+          margin-top: 18px;
+        }
+      }
+
+      button {
+        font-size: 15px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+      }
     }
   }
 `
@@ -113,6 +210,26 @@ export const CheckBox = styled.div<CheckBoxProps>`
     left: 30px;
     color: green !important;
   }
+
+  // Celphones
+  @media(max-width: 470px) {
+    svg {
+      top: -6px;
+      left: 31px;
+    }
+  }
+
+  // Small Celphones
+  @media(max-width: 400px) {
+    margin-right: 8px;
+    margin-left: 5px;
+    width: 13px;
+    height: 13px;
+    
+    svg {
+      top: -5px;
+    }
+  }
 `
 export const TextUseTerms = styled.label`
   font-size: 16px;
@@ -121,9 +238,20 @@ export const TextUseTerms = styled.label`
   letter-spacing: 1px;
   cursor: pointer;
   text-decoration: underline;
+
+  // Small Celphones
+  @media(max-width: 400px) {
+    font-size: 15px;
+  }
 `
 export const Flex = styled.div`
   display: flex;
   margin-top: 28px;
   line-height: 12px;
+
+  // Small Celphones
+  @media(max-width: 400px) {
+    margin-top: 23px;
+    line-height: 10px;
+  }
 `
