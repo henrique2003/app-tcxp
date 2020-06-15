@@ -13,7 +13,7 @@ type Props = PropsFromRedux
 
 const Modal: React.FC<Props> = ({ modal, changeModal }) => {
   const [ShowModal, setShowModal] = useState<string>('')
-  const [ModalComponent, setModalComponent] = useState<typeof IRegister | typeof ILogin>(modal.component)
+  const [ModalComponent] = useState<typeof IRegister | typeof ILogin>(modal.component)
 
   const payloadModalRegister: StateDefault = {
     open: !modal.open,
