@@ -43,6 +43,7 @@ export const StyledHeader = styled.header<HeaderProps>`
       text-align: center;
       border-radius: 5px;
       color: white;
+      margin-right: 0;
     }
   }
 
