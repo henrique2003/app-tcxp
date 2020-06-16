@@ -24,6 +24,12 @@ import Facebook from './icons/facebook.png'
 import Pinterest from './icons/pinterest.png'
 import Instagram from './icons/instagram.png'
 
+// Register
+import BridgeResgister from './images/register/bridge-register.svg'
+
+// Login
+import BridgeLogin from './images/login/background-login.svg'
+
 export {
   ArrowRight,
   Group,
@@ -42,5 +48,7 @@ export {
   Email,
   Facebook,
   Pinterest,
-  Instagram
+  Instagram,
+  BridgeResgister,
+  BridgeLogin
 }

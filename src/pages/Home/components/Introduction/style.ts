@@ -153,6 +153,15 @@ export const StyledIntroduction = styled.div<Introduction>`
     }
   }
 
+  // Ipad Prod
+  @media(max-width: 1050px) {
+    .wrapper_content {
+      p {
+        width: 90%;
+      }
+    }
+  }
+
   /* Tablets */
   @media (max-width: 900px) {
     height: auto;
