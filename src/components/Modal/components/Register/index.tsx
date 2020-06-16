@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import { BridgeResgister } from '../../../../assets'
-import { BackgroundLeft } from '../../style'
+import { BackgroundLeft, Content } from '../../style'
 import { IoIosClose } from 'react-icons/io'
 import { FaRegUser } from 'react-icons/fa'
 import { BsCheck } from 'react-icons/bs'
 import { AiOutlineLock, AiOutlineMail } from 'react-icons/ai'
-import { Content, CheckBox, Flex, TextUseTerms } from './style'
+import { CheckBox, Flex, TextUseTerms } from './style'
 
 interface Props {
   closeModal: () => void
+  goToLogin: () => void
 }
 
-const Register: React.FC<Props> = ({ closeModal }) => {
+const Register: React.FC<Props> = ({ closeModal, goToLogin }) => {
   const [UseTerms, setUseTerms] = useState<boolean>(false)
 
   return (
@@ -61,7 +62,7 @@ const Register: React.FC<Props> = ({ closeModal }) => {
             </Flex>
             <button type="submit">Cadastrar</button>
           </form>
-          <button type="button">Já tem uma conta</button>
+          <button type="button" onClick={() => goToLogin()}>Já tem uma conta</button>
         </section>
       </Content>
     </>

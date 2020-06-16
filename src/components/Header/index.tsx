@@ -14,6 +14,11 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) =
     open: !modal.open,
     component: 'Register'
   }
+
+  const payloadModalLogin: StateDefault = {
+    open: !modal.open,
+    component: 'Login'
+  }
   return (
     <StyledHeader navShow={navbar}>
       <div className="navbar_web">
@@ -30,7 +35,7 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) =
             <li><NavLink to="/sobre">Sobre</NavLink></li>
             <li><NavLink to="/duvidas">Dúvidas</NavLink></li>
             <li onClick={() => changeModal(payloadModalRegister)}>Cadastre-se</li>
-            <li>Entrar</li>
+            <li onClick={() => changeModal(payloadModalLogin)}>Entrar</li>
           </ul>
         </div>
       </div>
@@ -41,7 +46,7 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) =
           <li onClick={() => changeNavbar(!navbar)}><NavLink to="/sobre">Sobre</NavLink></li>
           <li onClick={() => changeNavbar(!navbar)}><NavLink to="/duvidas">Dúvidas</NavLink></li>
           <li onClick={() => changeModal(payloadModalRegister)}>Cadastre-se</li>
-          <li>Entrar</li>
+          <li onClick={() => changeModal(payloadModalLogin)}>Entrar</li>
         </ul>
       </div>
     </StyledHeader>

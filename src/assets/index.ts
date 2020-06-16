@@ -19,8 +19,11 @@ import PersonOne from './images/home/comments/person-one.png'
 import PersonTwo from './images/home/comments/person-two.png'
 import PersonThree from './images/home/comments/person-three.png'
 
-// Login
+// Register
 import BridgeResgister from './images/register/bridge-register.svg'
+
+// Login
+import BridgeLogin from './images/login/background-login.svg'
 
 export {
   ArrowRight,
@@ -37,5 +40,6 @@ export {
   PersonOne,
   PersonTwo,
   PersonThree,
-  BridgeResgister
+  BridgeResgister,
+  BridgeLogin
 }
