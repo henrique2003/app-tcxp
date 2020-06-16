@@ -7,9 +7,10 @@ import { StyledLogin } from './style'
 
 interface Props {
   closeModal: () => void
+  goToCreateAccount: () => void
 }
 
-const Login: React.FC<Props> = ({ closeModal }) => {
+const Login: React.FC<Props> = ({ closeModal, goToCreateAccount }) => {
   return (
     <>
       <BackgroundLeft image={BridgeLogin}></BackgroundLeft>
@@ -35,7 +36,7 @@ const Login: React.FC<Props> = ({ closeModal }) => {
               /><AiOutlineLock />
               <button type="submit">Entrar</button>
             </form>
-            <p>Ainda não tem uma conta? <button type="button">Criar conta</button></p>
+            <p>Ainda não tem uma conta? <button type="button" onClick={() => goToCreateAccount()}>Criar conta</button></p>
           </section>
         </StyledLogin>
       </Content>

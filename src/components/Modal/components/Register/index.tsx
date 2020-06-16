@@ -9,9 +9,10 @@ import { CheckBox, Flex, TextUseTerms } from './style'
 
 interface Props {
   closeModal: () => void
+  goToLogin: () => void
 }
 
-const Register: React.FC<Props> = ({ closeModal }) => {
+const Register: React.FC<Props> = ({ closeModal, goToLogin }) => {
   const [UseTerms, setUseTerms] = useState<boolean>(false)
 
   return (
@@ -61,7 +62,7 @@ const Register: React.FC<Props> = ({ closeModal }) => {
             </Flex>
             <button type="submit">Cadastrar</button>
           </form>
-          <button type="button">Já tem uma conta</button>
+          <button type="button" onClick={() => goToLogin()}>Já tem uma conta</button>
         </section>
       </Content>
     </>

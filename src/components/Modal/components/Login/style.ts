@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledLogin = styled.div`
-  height: 450px;
+  height: 465px;
 
   header {
     margin-bottom: 35px;
