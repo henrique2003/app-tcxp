@@ -6,10 +6,6 @@ import store from './store'
 import './global.css'
 
 const App: React.FC = () => {
-  store.subscribe(() => {
-    console.log('asfsaf')
-  })
-
   return (
     <Provider store={store}>
       <Routes />

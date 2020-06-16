@@ -18,6 +18,11 @@ import Santorini from './images/home/cards/santorini.png'
 import PersonOne from './images/home/comments/person-one.png'
 import PersonTwo from './images/home/comments/person-two.png'
 import PersonThree from './images/home/comments/person-three.png'
+// Footer
+import Email from './icons/email.png'
+import Facebook from './icons/facebook.png'
+import Pinterest from './icons/pinterest.png'
+import Instagram from './icons/instagram.png'
 
 export {
   ArrowRight,
@@ -33,5 +38,9 @@ export {
   Santorini,
   PersonOne,
   PersonTwo,
-  PersonThree
+  PersonThree,
+  Email,
+  Facebook,
+  Pinterest,
+  Instagram
 }
