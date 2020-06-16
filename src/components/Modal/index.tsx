@@ -5,7 +5,7 @@ import { Dispatch } from 'redux'
 import { changeModal } from '../../store/actions/modal'
 import { StateDefault, Register as IRegister, Login as ILogin } from '../../store/actions/modal/types'
 import { StyledModal, Row } from './style'
-import { Register } from './components'
+import { Register, Login } from './components'
 
 import './style.css'
 
@@ -38,8 +38,8 @@ const Modal: React.FC<Props> = ({ modal, changeModal }) => {
       <StyledModal>
         <Row>
           {ModalComponent === 'Register'
-            ? <Register closeModal={() => closeModal()} />
-            : <Register closeModal={() => closeModal()} />}
+            ? <Login closeModal={() => closeModal()} />
+            : <Login closeModal={() => closeModal()} />}
         </Row>
       </StyledModal>
     </ModalReact>
