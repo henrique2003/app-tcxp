@@ -18,7 +18,7 @@ export const StyledCard = styled.div<Props>`
 
   &:nth-child(3) {
     transform: translateX(-50%);
-    z-index: 5;
+    z-index: 4;
 
     .content {
       h5 {
@@ -36,7 +36,7 @@ export const StyledCard = styled.div<Props>`
     height: 420px;
     width: 300px;
     margin-top: 50px;
-    z-index: 4;
+    z-index: 3;
   }
 
   &:nth-child(2) {
@@ -52,7 +52,7 @@ export const StyledCard = styled.div<Props>`
     height: 365px;
     width: 280px;
     margin-top: 83px;
-    z-index: 3;
+    z-index: 2;
 
     .content {
       h5 {
