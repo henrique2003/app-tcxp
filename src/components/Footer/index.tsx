@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { StyledFooter, Row, RowLinks, RowSocialMedia } from './style'
-import Meedia from './components/SocialMedia'
-import { Email, Facebook, Pinterest, Instagram } from '../../assets'
+import SocialMediaItem from './components/SocialMedia'
+import { Email, Facebook, Pinterest, Instagram, BackgorundFooter } from '../../assets'
+import { StyledFooter, Row, RowLinks, RowSocialMedia, TraceBottom } from './style'
 
 const Footer: React.FC = () => {
   return (
-    <StyledFooter>
+    <StyledFooter image={BackgorundFooter}>
       <Row>
         <article>
           <div className="wrapper_company">
@@ -20,38 +20,44 @@ const Footer: React.FC = () => {
           <div className="wrapper_links">
             <p>Páginas:</p>
             <RowLinks>
-              <div className="links">
+              <TraceBottom>
                 <Link to="/">Home</Link>
+              </TraceBottom>
+              <TraceBottom>
                 <Link to="/perguntas">Dúvidas</Link>
+              </TraceBottom>
+              <TraceBottom>
                 <Link to="/sobre">Sobre</Link>
+              </TraceBottom>
+              <TraceBottom>
                 <button type="button">Cadastro</button>
+              </TraceBottom>
+              <TraceBottom>
                 <button type="button">Entrar</button>
-              </div>
+              </TraceBottom>
             </RowLinks>
           </div>
         </article>
         <article>
           <div className="wrapper_social_media">
+            <p>Nos siga nas nossas redes sociais:</p>
             <RowSocialMedia>
-              <p>Nos siga nas nossas redes sociais:</p>
-              <div className="social_medias">
-                <Meedia
-                  text="facebook/tcxp"
-                  icon={Facebook}
-                />
-                <Meedia
-                  text="br.pinterest.com/tcxp"
-                  icon={Pinterest}
-                />
-                <Meedia
-                  text="@tcxp"
-                  icon={Instagram}
-                />
-                <Meedia
-                  text="tcxp@gmail.com"
-                  icon={Email}
-                />
-              </div>
+              <SocialMediaItem
+                text="facebook/tcxp"
+                icon={Facebook}
+              />
+              <SocialMediaItem
+                text="br.pinterest.com/tcxp"
+                icon={Pinterest}
+              />
+              <SocialMediaItem
+                text="@tcxp"
+                icon={Instagram}
+              />
+              <SocialMediaItem
+                text="tcxp@gmail.com"
+                icon={Email}
+              />
             </RowSocialMedia>
           </div>
         </article>

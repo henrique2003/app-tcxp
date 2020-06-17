@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import ModalReact from 'react-modal'
 import { connect, ConnectedProps } from 'react-redux'
 import { Dispatch } from 'redux'

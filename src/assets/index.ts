@@ -19,6 +19,7 @@ import PersonOne from './images/home/comments/person-one.png'
 import PersonTwo from './images/home/comments/person-two.png'
 import PersonThree from './images/home/comments/person-three.png'
 // Footer
+import BackgorundFooter from './images/footer/background-footer.png'
 import Email from './icons/email.png'
 import Facebook from './icons/facebook.png'
 import Pinterest from './icons/pinterest.png'
@@ -50,5 +51,6 @@ export {
   Pinterest,
   Instagram,
   BridgeResgister,
-  BridgeLogin
+  BridgeLogin,
+  BackgorundFooter
 }
