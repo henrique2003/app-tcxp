@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const StylesMedia = styled.div`
   margin-bottom: 30px;
   display: flex;
+  cursor: pointer;
 
   img {
     width: 30px;

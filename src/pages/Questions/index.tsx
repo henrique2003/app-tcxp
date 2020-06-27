@@ -1,10 +1,11 @@
 import React from 'react'
+import { Introduction } from './components'
 
 const Questions: React.FC = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <Introduction />
+    </>
   )
 }
 
