@@ -1,10 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect, ConnectedProps } from 'react-redux'
 import SocialMediaItem from './components/SocialMedia'
 import { Email, Facebook, Pinterest, Instagram, BackgorundFooter } from '../../assets'
 import { StyledFooter, Row, RowLinks, RowSocialMedia, TraceBottom } from './style'
+import { changeModal } from '../../store/actions'
+import { Register, Login, StateDefault } from '../../store/actions/modal/types'
+import { Dispatch } from 'redux'
 
-const Footer: React.FC = () => {
+type Props = PropsFromRedux
+
+const Footer: React.FC<Props> = ({ changeModal, modal }) => {
+  const payloadModalRegister: StateDefault = {
+    open: !modal.open,
+    component: 'Register'
+  }
+
+  const payloadModalLogin: StateDefault = {
+    open: !modal.open,
+    component: 'Login'
+  }
   return (
     <StyledFooter image={BackgorundFooter}>
       <Row>
@@ -24,16 +39,16 @@ const Footer: React.FC = () => {
                 <Link to="/">Home</Link>
               </TraceBottom>
               <TraceBottom>
-                <Link to="/perguntas">Dúvidas</Link>
+                <Link to="/duvidas">Dúvidas</Link>
               </TraceBottom>
               <TraceBottom>
                 <Link to="/sobre">Sobre</Link>
               </TraceBottom>
               <TraceBottom>
-                <button type="button">Cadastro</button>
+                <button type="button" onClick={() => changeModal(payloadModalRegister)}>Cadastro</button>
               </TraceBottom>
               <TraceBottom>
-                <button type="button">Entrar</button>
+                <button type="button" onClick={() => changeModal(payloadModalLogin)}>Entrar</button>
               </TraceBottom>
             </RowLinks>
           </div>
@@ -66,4 +81,26 @@ const Footer: React.FC = () => {
   )
 }
 
-export default Footer
+interface RootState {
+  modal: {
+    open: typeof Register | typeof Login
+  }
+}
+
+interface DispatchProps {
+  changeModal: (payload: StateDefault) => void
+}
+
+const mapState = (state: RootState): RootState => ({
+  modal: state.modal
+})
+
+const mapDispatch = (dispatch: Dispatch): DispatchProps => ({
+  changeModal: (payload) => dispatch(changeModal(payload))
+})
+
+const connector = connect(mapState, mapDispatch)
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+export default connector(Footer)
