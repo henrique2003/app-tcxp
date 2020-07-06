@@ -5,6 +5,8 @@ export const Title = styled.h3`
   font-weight: 400;
   font-size: 32px;
   color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  text-align: center;
 
   /* Tablets */
   @media (max-width: 900px) {

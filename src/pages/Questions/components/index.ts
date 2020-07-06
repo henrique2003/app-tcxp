@@ -1,5 +1,7 @@
-import Introduction from './Introduction/index'
+import Introduction from './Introduction'
+import Contents from './Contents'
 
 export {
-  Introduction
+  Introduction,
+  Contents
 }
