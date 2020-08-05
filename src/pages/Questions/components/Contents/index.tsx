@@ -1,6 +1,7 @@
 import React from 'react'
 import { Title, Container } from '../../../../styles'
-import { StyledContent, Row, Form, TitleForm, Label, Input, Textarea, Submit } from './style'
+import Accordion from './Accordion'
+import { StyledContent, Row, Form, TitleForm, Label, Input, Textarea, Submit, Comments } from './style'
 
 const Content: React.FC = () => {
   return (
@@ -8,6 +9,9 @@ const Content: React.FC = () => {
       <Title>Perguntas Frequentes</Title>
       <Container>
         <Row>
+          <Comments>
+            <Accordion title="Esqueci minha senha, e agora?" content="Por que sim e porque é o melhor de todos e tudo mais." />
+          </Comments>
           <Form>
             <TitleForm>Nos informe sua pergunta</TitleForm>
             <Label>Nome:</Label>

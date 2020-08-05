@@ -5,7 +5,7 @@ export const StyledContent = styled.div`
   background: #eeeeee;
 `
 export const Row = styled.div`
-  margin-top: 45px;
+  margin-top: 75px;
   display: flex;
   flex-direction: row;
 `
@@ -18,6 +18,10 @@ export const Form = styled.form`
   -webkit-box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.3);
   -moz-box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.3);
   box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.3);
+`
+
+export const Comments = styled.div`
+  flex: 2;
 `
 
 export const TitleForm = styled.div`
