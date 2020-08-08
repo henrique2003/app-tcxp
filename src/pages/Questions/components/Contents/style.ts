@@ -8,6 +8,10 @@ export const Row = styled.div`
   margin-top: 75px;
   display: flex;
   flex-direction: row;
+
+  @media(max-width: 1000px) {
+    flex-direction: column;
+  }
 `
 export const Form = styled.form`
   flex: 1;
