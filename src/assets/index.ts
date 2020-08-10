@@ -34,6 +34,9 @@ import BridgeLogin from './images/login/background-login.svg'
 // Questions
 import QuestionsIntroduction from './images/questions/background-questions.png'
 
+// About
+import AboutIntroduction from './images/about/bg_about.png'
+
 export {
   ArrowRight,
   Group,
@@ -56,5 +59,6 @@ export {
   BridgeResgister,
   BridgeLogin,
   BackgorundFooter,
-  QuestionsIntroduction
+  QuestionsIntroduction,
+  AboutIntroduction
 }
