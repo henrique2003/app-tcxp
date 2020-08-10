@@ -3,6 +3,9 @@ import ArrowRight from './icons/arrow-right.png'
 import Group from './icons/group.png'
 import New from './icons/new.png'
 import User from './icons/user.png'
+import Purpose from './icons/purpose.png'
+import Vision from './icons/vision.png'
+import Values from './icons/values.png'
 
 // Images
 // Home
@@ -60,5 +63,8 @@ export {
   BridgeLogin,
   BackgorundFooter,
   QuestionsIntroduction,
-  AboutIntroduction
+  AboutIntroduction,
+  Purpose,
+  Vision,
+  Values
 }
