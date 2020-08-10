@@ -5,7 +5,7 @@ interface IntroductionProps {
   isNav: boolean
 }
 
-export const StyledIntroductionQuestion = styled.div<IntroductionProps>`
+export const StyledIntroduction = styled.div<IntroductionProps>`
   margin-top: ${(props) => (props.isNav ? '0' : '-120px')};
   display: flex;
   background-image: url(${(props) => props.image});
@@ -20,13 +20,25 @@ export const Content = styled.div`
   margin-top: 33vh;
   max-width: 460px;
 
+  h3 {
+    color: rgba(255,255,255,0.8);
+    font-size: 34px;
+  }
+
   h4 {
     color: #f27f1b;
     font-size: 34px;
   }
 
+  h5 {
+    color: #f27f1b;
+    font-size: 23px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 16px;
+  }
+
   p {
-    margin-top: 15px;
+    margin-top: 20px;
     color: white;
     font-size: 21px;
   }

@@ -1,11 +1,12 @@
 import React from 'react'
+import { Introduction } from './components'
 
-const Sobre: React.FC = () => {
+const About: React.FC = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <Introduction />
+    </>
   )
 }
 
-export default Sobre
+export default About

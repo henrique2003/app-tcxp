@@ -1,17 +1,18 @@
 import React from 'react'
 import { connect, ConnectedProps } from 'react-redux'
-import { QuestionsIntroduction } from '../../../../assets'
+import { AboutIntroduction } from '../../../../assets'
 import { Container, StyledIntroduction, Content } from '../../../../styles'
 
 type Props = PropsFromRedux
 
 const IntroductionQuestions: React.FC<Props> = ({ navbar }) => {
   return (
-    <StyledIntroduction image={QuestionsIntroduction} isNav={navbar}>
+    <StyledIntroduction image={AboutIntroduction} isNav={navbar}>
       <Container>
         <Content>
-          <h4>Dúvidas</h4>
-          <p>Ficou com dúvida sobre algo, veja abaixo algumas das dúvidas mais frequentes dentre todos que acessam a nossa plataforma. Caso você não encontre o que precisa, preencha o formulário e responderemos em breve</p>
+          <h3>Sobre Nós</h3>
+          <h5>Afinal o que é a TCXP?</h5>
+          <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de.</p>
         </Content>
       </Container>
     </StyledIntroduction>
