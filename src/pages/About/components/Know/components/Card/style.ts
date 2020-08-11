@@ -7,7 +7,7 @@ export const StyledCard = styled.div`
 
   @media(max-width: 1024px) {
     margin: 0 20px;
-    margin-top: 55px;
+    margin-top: 75px;
   }
   
   @media(max-width: 430px) {
