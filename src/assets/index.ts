@@ -39,6 +39,7 @@ import QuestionsIntroduction from './images/questions/background-questions.png'
 
 // About
 import AboutIntroduction from './images/about/bg_about.png'
+import AboutWrapper from './images/about/bg_wrapper_about.png'
 
 export {
   ArrowRight,
@@ -66,5 +67,6 @@ export {
   AboutIntroduction,
   Purpose,
   Vision,
-  Values
+  Values,
+  AboutWrapper
 }
