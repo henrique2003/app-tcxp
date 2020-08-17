@@ -19,8 +19,68 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) =
     open: !modal.open,
     component: 'Login'
   }
+
+  // If logged
+  const logged = false
+
+  // Navbar web no logged
+  function linksNavWebNoLogged (): JSX.Element {
+    return (
+      <>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/sobre">Sobre</NavLink></li>
+        <li><NavLink to="/duvidas">Dúvidas</NavLink></li>
+        {/* Modal */}
+        <li onClick={() => changeModal(payloadModalRegister)}>Cadastre-se</li>
+        <li onClick={() => changeModal(payloadModalLogin)}>Entrar</li>
+      </>
+    )
+  }
+
+  // Navbar web logged
+  function linksNavWebLogged (): JSX.Element {
+    return (
+      <>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/sobre">Sobre</NavLink></li>
+        <li><NavLink to="/duvidas">Dúvidas</NavLink></li>
+        {/* Modal */}
+        <li onClick={() => changeModal(payloadModalRegister)}>Cadastre-se</li>
+        <li onClick={() => changeModal(payloadModalLogin)}>Entrar</li>
+      </>
+    )
+  }
+
+  // Navbar mobile no logged
+  function linksNavMobileNoLogged (): JSX.Element {
+    return (
+      <>
+        <li onClick={() => changeNavbar(!navbar)}><NavLink to="/">Home</NavLink></li>
+        <li onClick={() => changeNavbar(!navbar)}><NavLink to="/sobre">Sobre</NavLink></li>
+        <li onClick={() => changeNavbar(!navbar)}><NavLink to="/duvidas">Dúvidas</NavLink></li>
+        {/* Modal */}
+        <li onClick={() => changeModal(payloadModalRegister)}>Cadastre-se</li>
+        <li onClick={() => changeModal(payloadModalLogin)}>Entrar</li>
+      </>
+    )
+  }
+
+  // Navbar mobile logged
+  function linksNavMobileLogged (): JSX.Element {
+    return (
+      <>
+        <li onClick={() => changeNavbar(!navbar)}><NavLink to="/">Home</NavLink></li>
+        <li onClick={() => changeNavbar(!navbar)}><NavLink to="/sobre">Sobre</NavLink></li>
+        <li onClick={() => changeNavbar(!navbar)}><NavLink to="/duvidas">Dúvidas</NavLink></li>
+        {/* Modal */}
+        <li onClick={() => changeModal(payloadModalRegister)}>Cadastre-se</li>
+        <li onClick={() => changeModal(payloadModalLogin)}>Entrar</li>
+      </>
+    )
+  }
+
   return (
-    <StyledHeader navShow={navbar}>
+    <StyledHeader navShow={navbar} logged={logged}>
       <div className="navbar_web">
         <div className="toggle_show" onClick={() => changeNavbar(!navbar)}>
           <IoMdClose />
@@ -28,25 +88,20 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) =
           <div className="align_justify"></div>
           <div className="align_justify"></div>
         </div>
+        {/* Web */}
         <div className="container">
           <h3>tcxp</h3>
+          {/* Links */}
           <ul>
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/sobre">Sobre</NavLink></li>
-            <li><NavLink to="/duvidas">Dúvidas</NavLink></li>
-            <li onClick={() => changeModal(payloadModalRegister)}>Cadastre-se</li>
-            <li onClick={() => changeModal(payloadModalLogin)}>Entrar</li>
+            {logged ? linksNavWebLogged() : linksNavWebNoLogged()}
           </ul>
         </div>
       </div>
+      {/* Mobile */}
       <div className="navbar_mobile">
         <h3>tcxp</h3>
         <ul>
-          <li onClick={() => changeNavbar(!navbar)}><NavLink to="/">Home</NavLink></li>
-          <li onClick={() => changeNavbar(!navbar)}><NavLink to="/sobre">Sobre</NavLink></li>
-          <li onClick={() => changeNavbar(!navbar)}><NavLink to="/duvidas">Dúvidas</NavLink></li>
-          <li onClick={() => changeModal(payloadModalRegister)}>Cadastre-se</li>
-          <li onClick={() => changeModal(payloadModalLogin)}>Entrar</li>
+          {logged ? linksNavMobileLogged() : linksNavMobileNoLogged()}
         </ul>
       </div>
     </StyledHeader>

@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components'
 
 interface HeaderProps {
-  navShow: Boolean
+  navShow: boolean
+  logged: boolean
 }
 
 export const StyledHeader = styled.header<HeaderProps>`
@@ -32,6 +33,7 @@ export const StyledHeader = styled.header<HeaderProps>`
     height: 35px;
     line-height: 35px;
     cursor: pointer;
+    color: ${props => props.logged ? 'rgba(0,0,0,0.7)' : 'white'};
 
     a {
       text-decoration: none;
@@ -42,7 +44,7 @@ export const StyledHeader = styled.header<HeaderProps>`
       width: 100px;
       text-align: center;
       border-radius: 5px;
-      color: white;
+      color: ${props => props.logged ? 'rgba(0,0,0,0.7)' : 'white'};
       margin-right: 0;
     }
   }
@@ -52,6 +54,7 @@ export const StyledHeader = styled.header<HeaderProps>`
     padding: 20px 0;
   }
 
+  /* Navbar web */
   .navbar_web {
     position: relative;
     width: 100%;
@@ -105,11 +108,12 @@ export const StyledHeader = styled.header<HeaderProps>`
 
           &:nth-child(5) {
             background: #f27f1b;
-            width: 120px;
+            background: ${props => props.logged ? 'white' : '#f27f1b'};
+            width: ${props => props.logged ? 'auto' : '120px'};
           }
 
           a {
-            color: white;
+            color: ${props => props.logged ? 'rgba(0,0,0,0.7)' : 'white'};
           }
         }
       }

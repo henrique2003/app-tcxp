@@ -6,6 +6,7 @@ import User from './icons/user.png'
 import Purpose from './icons/purpose.png'
 import Vision from './icons/vision.png'
 import Values from './icons/values.png'
+import Face from './icons/face.png'
 
 // Images
 // Home
@@ -68,5 +69,6 @@ export {
   Purpose,
   Vision,
   Values,
-  AboutWrapper
+  AboutWrapper,
+  Face
 }
