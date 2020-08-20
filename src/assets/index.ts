@@ -7,6 +7,7 @@ import Purpose from './icons/purpose.png'
 import Vision from './icons/vision.png'
 import Values from './icons/values.png'
 import Face from './icons/face.png'
+import Checked from './icons/checked.png'
 
 // Images
 // Home
@@ -42,6 +43,20 @@ import QuestionsIntroduction from './images/questions/background-questions.png'
 import AboutIntroduction from './images/about/bg_about.png'
 import AboutWrapper from './images/about/bg_wrapper_about.png'
 
+// Places
+import Usa from './images/places/usa.png'
+import Uk from './images/places/uk.png'
+import Irland from './images/places/irland.png'
+import Italy from './images/places/italy.png'
+import Germany from './images/places/germany.png'
+import Turky from './images/places/turkey.png'
+import Indonesia from './images/places/indonesia.png'
+import SaaraDesert from './images/places/saara_desert.png'
+import Dubai from './images/places/dubai.png'
+import Amsterdan from './images/places/amsterdan.png'
+import Chinese from './images/places/chinese.png'
+import Japan from './images/places/japan.png'
+
 export {
   ArrowRight,
   Group,
@@ -70,5 +85,18 @@ export {
   Vision,
   Values,
   AboutWrapper,
-  Face
+  Face,
+  Usa,
+  Uk,
+  Irland,
+  Italy,
+  Germany,
+  Turky,
+  Indonesia,
+  SaaraDesert,
+  Dubai,
+  Amsterdan,
+  Chinese,
+  Japan,
+  Checked
 }
