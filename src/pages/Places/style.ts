@@ -106,3 +106,23 @@ export const Row = styled.div`
     grid-template-columns: repeat(1, 1fr);
   }
 `
+
+export const DivButton = styled.div`
+  text-align: center;
+  margin: 15px 0;
+  width: 100%;
+`
+
+export const Button = styled.button`
+  background: #FF6D00;
+  padding: 5px 28px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s ease;
+
+  img {
+    margin-top: 2px;
+  }
+`

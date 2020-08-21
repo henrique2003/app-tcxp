@@ -1,8 +1,8 @@
 import React from 'react'
 import { GrClose } from 'react-icons/gr'
-import { StyledPlaces, Title, TitleSpan, Paragrath, Row } from './style'
+import { StyledPlaces, Title, TitleSpan, Paragrath, Row, Button, DivButton } from './style'
 import PlaceItem from './PlaceItem'
-import { Usa } from '../../assets'
+import { Usa, ArrowRight } from '../../assets'
 
 const Places: React.FC = () => {
   return (
@@ -17,6 +17,11 @@ const Places: React.FC = () => {
         <PlaceItem name="EUA" image={Usa}/>
         <PlaceItem name="EUA" image={Usa}/>
       </Row>
+      <DivButton>
+        <Button>
+          <img src={ArrowRight} alt="Button"/>
+        </Button>
+      </DivButton>
     </StyledPlaces>
   )
 }

@@ -8,6 +8,7 @@ import Vision from './icons/vision.png'
 import Values from './icons/values.png'
 import Face from './icons/face.png'
 import Checked from './icons/checked.png'
+import NavbarArrow from './icons/navbar_arrow.png'
 
 // Images
 // Home
@@ -98,5 +99,6 @@ export {
   Amsterdan,
   Chinese,
   Japan,
-  Checked
+  Checked,
+  NavbarArrow
 }

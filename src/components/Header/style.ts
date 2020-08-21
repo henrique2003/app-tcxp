@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 interface HeaderProps {
   navShow: boolean
   logged: boolean
+  dropDown: boolean
 }
 
 export const StyledHeader = styled.header<HeaderProps>`
@@ -108,12 +109,45 @@ export const StyledHeader = styled.header<HeaderProps>`
 
           &:nth-child(5) {
             background: #f27f1b;
-            background: ${props => props.logged ? 'white' : '#f27f1b'};
+            background: ${props => props.logged ? 'transparent' : '#f27f1b'};
             width: ${props => props.logged ? 'auto' : '120px'};
           }
 
           a {
             color: ${props => props.logged ? 'rgba(0,0,0,0.7)' : 'white'};
+          }
+
+          img {
+            margin-top: 3px;
+          }
+
+          ul {
+            position: absolute;
+            right: 25px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid ${props => props.dropDown ? 'rgba(0,0,0,0.6)' : 'white'};
+            padding: 0 10px;
+            max-height: ${props => props.dropDown ? 300 : 0}px;
+            overflow: hidden;
+            transition: all .3s ease;
+
+            li {
+              margin: 5px;
+              margin-top: 15px;
+              padding-bottom: 48px;
+              border-bottom: 1px solid rgba(0,0,0,0.3);
+
+              &:nth-child(3) {
+                border-bottom: none;
+                margin-top: 5px;
+                padding-bottom: 40px;
+              }
+              
+              &:nth-child(2) {
+                margin-top: 5px;
+              }
+            }
           }
         }
       }
@@ -129,6 +163,10 @@ export const StyledHeader = styled.header<HeaderProps>`
         display: block;
         top: ${(props) => (props.navShow ? '0' : '10px')};
         right: ${(props) => (props.navShow ? '30px' : '95px')};
+
+        .align_justify {
+          background: ${props => props.logged ? 'rgba(0,0,0,0.7)' : 'white'};
+        }
       }
 
       .container {
@@ -192,6 +230,14 @@ export const StyledHeader = styled.header<HeaderProps>`
         padding: 0 45px;
       }
     }
+
+    @media(max-width: 350px) {
+      .toggle_show {
+        svg {
+          font-size: 35px;
+        }
+      }
+    }
   }
 
   .navbar_mobile {
@@ -219,16 +265,21 @@ export const StyledHeader = styled.header<HeaderProps>`
     ul {
       position: absolute;
       list-style: none;
-      top: 350px;
+      top: ${props => props.logged ? '250px' : '350px'};
       margin-top: 6px;
-      color: rgba(0, 0, 0, 0.7);
+      color: rgba(0, 0, 0, 0.8);
+      width: 70%;
 
       li {
         margin-top: 15px;
         font-size: 24px;
 
         a {
-          color: rgba(0, 0, 0, 0.7);
+          color: rgba(0, 0, 0, 0.8);
+        }
+
+        &:nth-child(4) {
+          margin-bottom: 30px;
         }
 
         &:nth-child(5) {
@@ -237,6 +288,16 @@ export const StyledHeader = styled.header<HeaderProps>`
           height: 40px;
           line-height: 38px;
           letter-spacing: 2px;
+          ${props => props.logged && css`
+            text-align: left;
+            background: transparent;
+            width: 100%;
+            height: auto;
+            letter-spacing: 0;
+            border-top: 1px solid rgba(0,0,0,0.6);
+            border-radius: 0;
+            padding-top: 25px;
+          `};
         }
       }
     }
@@ -263,6 +324,11 @@ export const StyledHeader = styled.header<HeaderProps>`
             font-size: 21px;
             height: 35px;
             line-height: 34px;
+          ${props => props.logged && css`
+            margin-top: 20px;
+            line-height: 38px;
+            height: auto;
+          `};
           }
         }
       }
@@ -280,20 +346,29 @@ export const StyledHeader = styled.header<HeaderProps>`
       }
 
       ul {
-        top: 230px;
+        top: ${props => props.logged ? '180px' : '230px'};
 
         li {
           margin-top: 4px;
           font-size: 19px;
 
           &:nth-child(5) {
-            margin-top: 15px;
             font-size: 18px;
-            height: 35px;
             width: 120px;
-            line-height: 34px;
+          ${props => props.logged && css`
+            margin-top: 20px;
+            line-height: 38px;
+            width: auto;
+            height: auto;
+          `};
           }
         }
+      }
+    }
+
+    @media(max-width: 350px) {
+      ul {
+        top: ${props => props.logged ? '120px' : '210px'};
       }
     }
   }

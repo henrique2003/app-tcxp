@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect, ConnectedProps } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { IoMdClose } from 'react-icons/io'
+import { NavbarArrow } from '../../assets'
 import { StyledHeader } from './style'
 import { changeNavbar, changeModal } from '../../store/actions'
 import { StateDefault, Register, Login } from '../../store/actions/modal/types'
@@ -10,6 +11,8 @@ import { Dispatch } from 'redux'
 type Props = PropsFromRedux
 
 const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) => {
+  const [DropDown, setDropDown] = useState<boolean>(false)
+
   const payloadModalRegister: StateDefault = {
     open: !modal.open,
     component: 'Register'
@@ -41,12 +44,19 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) =
   function linksNavWebLogged (): JSX.Element {
     return (
       <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/sobre">Sobre</NavLink></li>
-        <li><NavLink to="/duvidas">Dúvidas</NavLink></li>
-        {/* Modal */}
-        <li onClick={() => changeModal(payloadModalRegister)}>Cadastre-se</li>
-        <li onClick={() => changeModal(payloadModalLogin)}>Entrar</li>
+        <li><NavLink to="/">Início</NavLink></li>
+        <li><NavLink to="/sobre">Explorar</NavLink></li>
+        <li><NavLink to="/duvidas">Chat</NavLink></li>
+        <li><NavLink to="/duvidas">Perfil</NavLink></li>
+        {/* DropDown */}
+        <li onClick={() => setDropDown(!DropDown)}>
+          <img src={NavbarArrow} alt="More"/>
+          <ul>
+            <li><NavLink to="/sobre">Solicitações </NavLink></li>
+            <li><NavLink to="/duvidas">Denúnciar</NavLink></li>
+            <li><NavLink to="/duvidas">Sair</NavLink></li>
+          </ul>
+        </li>
       </>
     )
   }
@@ -69,18 +79,19 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) =
   function linksNavMobileLogged (): JSX.Element {
     return (
       <>
-        <li onClick={() => changeNavbar(!navbar)}><NavLink to="/">Home</NavLink></li>
-        <li onClick={() => changeNavbar(!navbar)}><NavLink to="/sobre">Sobre</NavLink></li>
-        <li onClick={() => changeNavbar(!navbar)}><NavLink to="/duvidas">Dúvidas</NavLink></li>
-        {/* Modal */}
-        <li onClick={() => changeModal(payloadModalRegister)}>Cadastre-se</li>
-        <li onClick={() => changeModal(payloadModalLogin)}>Entrar</li>
+        <li><NavLink to="/">Início</NavLink></li>
+        <li><NavLink to="/sobre">Explorar</NavLink></li>
+        <li><NavLink to="/duvidas">Chat</NavLink></li>
+        <li><NavLink to="/duvidas">Perfil</NavLink></li>
+        <li><NavLink to="/sobre">Solicitações </NavLink></li>
+        <li><NavLink to="/duvidas">Denúnciar</NavLink></li>
+        <li><NavLink to="/duvidas">Sair</NavLink></li>
       </>
     )
   }
 
   return (
-    <StyledHeader navShow={navbar} logged={logged}>
+    <StyledHeader navShow={navbar} logged={logged} dropDown={DropDown}>
       <div className="navbar_web">
         <div className="toggle_show" onClick={() => changeNavbar(!navbar)}>
           <IoMdClose />

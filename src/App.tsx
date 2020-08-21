@@ -12,7 +12,8 @@ const App: React.FC = () => {
   const WithHeader = withRouter(({ location }: RouteComponentProps): JSX.Element => {
     if (location.pathname === '/' ||
       location.pathname === '/sobre' ||
-      location.pathname === 'duvidas'
+      location.pathname === '/duvidas' ||
+      location.pathname === '/dashboard/perfil'
     ) return <Header />
     else return <></>
   })
@@ -21,7 +22,7 @@ const App: React.FC = () => {
   const WithFooter = withRouter(({ location }: RouteComponentProps): JSX.Element => {
     if (location.pathname === '/' ||
       location.pathname === '/sobre' ||
-      location.pathname === 'duvidas'
+      location.pathname === '/duvidas'
     ) return <Footer />
     else return <></>
   })

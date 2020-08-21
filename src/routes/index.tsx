@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { Home, About, Questions, EmailConfirmation, Places } from '../pages'
+import { Home, About, Questions, EmailConfirmation, Places, Profile } from '../pages'
 
 const Routes: React.FC = () => {
   return (
@@ -13,6 +13,8 @@ const Routes: React.FC = () => {
       <Route path="/email/confirmar" component={EmailConfirmation} />
       {/* Places */}
       <Route path="/opcoes/lugares" component={Places} />
+      {/* Dashboard */}
+      <Route path="/dashboard/perfil" component={Profile} />
     </>
   )
 }
