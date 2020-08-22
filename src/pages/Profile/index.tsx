@@ -1,11 +1,11 @@
 import React from 'react'
-import { StyledProfile } from './style'
+import { Welcome } from './components'
 
 const Profile: React.FC = () => {
   return (
-    <StyledProfile>
-
-    </StyledProfile>
+    <>
+      <Welcome />
+    </>
   )
 }
 

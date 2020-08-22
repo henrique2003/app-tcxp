@@ -9,6 +9,7 @@ import Values from './icons/values.png'
 import Face from './icons/face.png'
 import Checked from './icons/checked.png'
 import NavbarArrow from './icons/navbar_arrow.png'
+import Pencil from './icons/pencil.png'
 
 // Images
 // Home
@@ -44,6 +45,7 @@ import QuestionsIntroduction from './images/questions/background-questions.png'
 import AboutIntroduction from './images/about/bg_about.png'
 import AboutWrapper from './images/about/bg_wrapper_about.png'
 
+// Dashboard
 // Places
 import Usa from './images/places/usa.png'
 import Uk from './images/places/uk.png'
@@ -57,6 +59,10 @@ import Dubai from './images/places/dubai.png'
 import Amsterdan from './images/places/amsterdan.png'
 import Chinese from './images/places/chinese.png'
 import Japan from './images/places/japan.png'
+
+// Profile
+import BgProfile from './images/profile/bg_profile.png'
+import PictureProfile from './images/profile/picture_profile.png'
 
 export {
   ArrowRight,
@@ -100,5 +106,8 @@ export {
   Chinese,
   Japan,
   Checked,
-  NavbarArrow
+  BgProfile,
+  PictureProfile,
+  NavbarArrow,
+  Pencil
 }

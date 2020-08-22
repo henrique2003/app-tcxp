@@ -12,7 +12,7 @@ export const StyledHeader = styled.header<HeaderProps>`
   top: 0;
   display: flex;
   z-index: 5;
-  padding: 30px 0;
+  padding: ${props => props.logged ? '15px' : '30px'} 0;
   height: ${(props) => (props.navShow ? '100vh' : '')};
   background: transparent;
   ${(props) => (props.navShow && css`
@@ -126,11 +126,12 @@ export const StyledHeader = styled.header<HeaderProps>`
             right: 25px;
             display: flex;
             flex-direction: column;
-            border: 1px solid ${props => props.dropDown ? 'rgba(0,0,0,0.6)' : 'white'};
+            border: 1px solid ${props => props.dropDown ? 'rgba(125,125,125,0.59)' : 'white'};
             padding: 0 10px;
             max-height: ${props => props.dropDown ? 300 : 0}px;
             overflow: hidden;
             transition: all .3s ease;
+            background: white;
 
             li {
               margin: 5px;
