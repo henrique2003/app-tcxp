@@ -12,6 +12,11 @@ export const StyledWelcome = styled.div<StyledWelcome>`
   background-position: 50% 50%;
   padding-top: 80px;
   padding-bottom: 70px;
+
+  @media(max-width: 600px) {
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
 `
 
 interface ImageProfileProps {
@@ -28,6 +33,11 @@ export const ImageProfile = styled.div<ImageProfileProps>`
   background-size: cover;
   background-position: 50% 50%;
   margin-bottom: 30px;
+
+  @media(max-width: 600px) {
+    width: 200px;
+    height: 200px;
+  }
 `
 
 interface ChangeProps {
@@ -35,7 +45,7 @@ interface ChangeProps {
   lengthName?: number
 }
 
-export const DivName = styled.div<ChangeProps>`
+export const FormName = styled.form`
   display: flex;
   justify-content: center;
 
@@ -45,7 +55,6 @@ export const DivName = styled.div<ChangeProps>`
     margin-left: 25px;
     cursor: pointer;
     transition: all .2s ease;
-    display: ${props => props.changed ? 'block' : 'none'};
 
     &:hover {
       color: #FF6E00;
@@ -58,6 +67,10 @@ export const Salutation = styled.p`
   font-size: 27px;
   font-weight: bold;
   color: white;
+
+  @media(max-width: 600px) {
+    font-size: 25px;
+  }
 `
 
 export const Name = styled.input<ChangeProps>`
@@ -70,6 +83,10 @@ export const Name = styled.input<ChangeProps>`
   max-width: ${props => props.lengthName ? props.lengthName * 15 : '15'}px;
   margin-left: 10px;
   cursor: default;
+
+  @media(max-width: 600px) {
+    font-size: 25px;
+  }
 `
 
 export const PencilIcon = styled.img<ChangeProps>`
@@ -78,4 +95,16 @@ export const PencilIcon = styled.img<ChangeProps>`
   margin-left: 25px;
   cursor: pointer;
   display: ${props => props.changed ? 'none' : 'block'};
+
+  @media(max-width: 600px) {
+    width: 30px;
+    height: 30px;
+  }
+`
+
+export const Submit = styled.button<ChangeProps>`
+  border: none;
+  background: transparent;
+  display: ${props => props.changed ? 'block' : 'none'};
+  height: 35px;
 `
