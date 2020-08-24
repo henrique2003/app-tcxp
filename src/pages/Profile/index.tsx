@@ -1,11 +1,12 @@
 import React from 'react'
-import { Welcome, ShortInfo } from './components'
+import { Welcome, ShortInfo, Info } from './components'
 
 const Profile: React.FC = () => {
   return (
     <>
       <Welcome />
       <ShortInfo />
+      <Info />
     </>
   )
 }
