@@ -19,6 +19,40 @@ export const StyledWelcome = styled.div<StyledWelcome>`
   }
 `
 
+export const ImageLabel = styled.label`
+  display: flex;
+  cursor: pointer;
+  text-align: center;
+  margin: 30px auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  display: block;
+  transition: all .3s ease;
+  background: rgba(0,0,0,0.3);
+  opacity: 0;
+
+  svg {
+    color: white;
+    font-size: 70px;
+    margin-top: 90px;
+  }
+
+  &:hover {
+    opacity: 1;
+    transition: all .3s ease;
+  }
+  
+  @media(max-width: 600px) {
+    width: 200px;
+    height: 200px;
+  }
+`
+
+export const InputImage = styled.input`
+  display: none;
+`
+
 interface ImageProfileProps {
   image: string
 }

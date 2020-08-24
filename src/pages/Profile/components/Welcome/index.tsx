@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { FaCheck } from 'react-icons/fa'
+import { GoPlus } from 'react-icons/go'
 import { Pencil, BgProfile, PictureProfile } from '../../../../assets'
-import { StyledWelcome, ImageProfile, FormName, Name, PencilIcon, Salutation, Submit } from './style'
+import {
+  StyledWelcome,
+  ImageProfile,
+  FormName,
+  Name,
+  PencilIcon,
+  Salutation,
+  Submit,
+  ImageLabel,
+  InputImage
+} from './style'
 
 const Welcome: React.FC = () => {
   const [Change, setChange] = useState<boolean>(false)
@@ -13,7 +24,12 @@ const Welcome: React.FC = () => {
 
   return (
     <StyledWelcome background={BgProfile}>
-      <ImageProfile image={PictureProfile}></ImageProfile>
+      <ImageProfile image={PictureProfile}>
+        <ImageLabel htmlFor="image_profile">
+          <InputImage type="file" id="image_profile"/>
+          <GoPlus />
+        </ImageLabel>
+      </ImageProfile>
       <FormName>
         <Salutation>Olá</Salutation>
         <Name
