@@ -1,10 +1,11 @@
 import React from 'react'
-import { Welcome } from './components'
+import { Welcome, ShortInfo } from './components'
 
 const Profile: React.FC = () => {
   return (
     <>
       <Welcome />
+      <ShortInfo />
     </>
   )
 }
