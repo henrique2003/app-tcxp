@@ -1,5 +1,5 @@
 import React from 'react'
-import { Welcome, ShortInfo, Info } from './components'
+import { Welcome, ShortInfo, Info, Evaluation } from './components'
 
 const Profile: React.FC = () => {
   return (
@@ -7,6 +7,7 @@ const Profile: React.FC = () => {
       <Welcome />
       <ShortInfo />
       <Info />
+      <Evaluation />
     </>
   )
 }

@@ -24,7 +24,7 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) =
   }
 
   // If logged
-  const logged = false
+  const logged = true
 
   // Navbar web no logged
   function linksNavWebNoLogged (): JSX.Element {
