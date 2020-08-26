@@ -63,6 +63,7 @@ import Japan from './images/places/japan.png'
 // Profile
 import BgProfile from './images/profile/bg_profile.png'
 import PictureProfile from './images/profile/picture_profile.png'
+import Comment from './images/profile/comment.png'
 
 export {
   ArrowRight,
@@ -109,5 +110,6 @@ export {
   BgProfile,
   PictureProfile,
   NavbarArrow,
-  Pencil
+  Pencil,
+  Comment
 }
