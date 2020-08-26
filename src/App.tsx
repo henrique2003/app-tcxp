@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, withRouter, RouteComponentProps } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { Header, Modal, Footer } from './components'
+import { Header, Modal, Footer, OutGroup, DeleteAccount } from './components'
 import Routes from './routes'
 import store from './store'
 
@@ -32,6 +32,8 @@ const App: React.FC = () => {
       <BrowserRouter>
         <WithHeader />
         <Modal />
+        <DeleteAccount />
+        <OutGroup />
         <Switch>
           <Routes />
         </Switch>
