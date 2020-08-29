@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BridgeResgister } from '../../../../assets'
+import { BridgeResgister } from '../../../../../assets'
 import { BackgroundLeft, Content } from '../../style'
 import { IoIosClose } from 'react-icons/io'
 import { FaRegUser } from 'react-icons/fa'
