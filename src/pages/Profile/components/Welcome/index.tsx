@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { FaCheck } from 'react-icons/fa'
 import { GoPlus } from 'react-icons/go'
 import { Pencil, BgProfile, PictureProfile } from '../../../../assets'
@@ -11,7 +12,9 @@ import {
   Salutation,
   Submit,
   ImageLabel,
-  InputImage
+  InputImage,
+  Flex,
+  Invite
 } from './style'
 
 const Welcome: React.FC = () => {
@@ -43,6 +46,11 @@ const Welcome: React.FC = () => {
         <PencilIcon src={Pencil} alt={'Olá Mário'} changed={Change} onClick={() => setChange(!Change)}/>
         <Submit type="submit" changed={Change} onClick={() => setChange(!Change)}><FaCheck/></Submit>
       </FormName>
+      <Flex>
+        <Link to="">Denunciar</Link>
+        <Link to="">Avaliar</Link>
+        <Invite type="button">Convidar</Invite>
+      </Flex>
     </StyledWelcome>
   )
 }
