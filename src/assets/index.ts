@@ -65,6 +65,9 @@ import BgProfile from './images/profile/bg_profile.png'
 import PictureProfile from './images/profile/picture_profile.png'
 import Comment from './images/profile/comment.png'
 
+// Group
+import PictureGroup from './images/group/picture_group.png'
+
 export {
   ArrowRight,
   Group,
@@ -111,5 +114,6 @@ export {
   PictureProfile,
   NavbarArrow,
   Pencil,
-  Comment
+  Comment,
+  PictureGroup
 }
