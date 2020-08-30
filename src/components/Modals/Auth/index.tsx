@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import ModalReact from 'react-modal'
 import { connect, ConnectedProps } from 'react-redux'
 import { Dispatch } from 'redux'
-import { StateDefault, Register as IRegister, Login as ILogin } from '../../store/actions/modal/types'
-import { changeModal } from '../../store/actions/modal'
+import { StateDefault, Register as IRegister, Login as ILogin } from '../../../store/actions/modal/types'
+import { changeModal } from '../../../store/actions/modal'
 import { StyledModal, Row } from './style'
 import { Register, Login } from './components'
 
@@ -11,7 +11,7 @@ import './style.css'
 
 type Props = PropsFromRedux
 
-const Modal: React.FC<Props> = ({ modal, changeModal }) => {
+const Auth: React.FC<Props> = ({ modal, changeModal }) => {
   const [ShowModal, setShowModal] = useState<string>('')
 
   const payloadModalRegister: StateDefault = {
@@ -82,4 +82,4 @@ const connector = connect(mapState, mapDispatch)
 
 type PropsFromRedux = ConnectedProps<typeof connector>
 
-export default connector(Modal)
+export default connector(Auth)

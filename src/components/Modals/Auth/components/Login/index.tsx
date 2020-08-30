@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoIosClose } from 'react-icons/io'
 import { AiOutlineLock, AiOutlineMail } from 'react-icons/ai'
-import { BridgeLogin } from '../../../../assets'
+import { BridgeLogin } from '../../../../../assets'
 import { BackgroundLeft, Content } from '../../style'
 import { StyledLogin } from './style'
 

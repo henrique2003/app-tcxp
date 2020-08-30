@@ -11,7 +11,7 @@ export const StyledWelcome = styled.div<StyledWelcome>`
   background-size: cover;
   background-position: 50% 50%;
   padding-top: 80px;
-  padding-bottom: 70px;
+  padding-bottom: 50px;
 
   @media(max-width: 600px) {
     padding-top: 50px;
@@ -141,4 +141,86 @@ export const Submit = styled.button<ChangeProps>`
   background: transparent;
   display: ${props => props.changed ? 'block' : 'none'};
   height: 35px;
+`
+
+export const Flex = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
+
+  @media(max-width: 480px) {
+    flex-wrap: wrap;
+  }
+
+  a {
+    text-decoration: none;
+    padding: 8px 30px;
+    margin: 0 10px;
+    color: white;
+    font-size: 19px;
+    border-radius: 5px;
+    text-align: center;
+    transition: all .2s ease;
+
+    &:nth-child(1) {
+      background: #EE3C3C;
+
+      &:hover {
+        background: #d43636;
+        transition: all .2s ease;
+      }
+    }
+
+    &:nth-child(2) {
+      background: #808080;
+      padding: 8px 45px;
+
+      &:hover {
+        background: #6f6f6f;
+        transition: all .2s ease;
+      }
+    }
+
+    @media(max-width: 530px) {
+      font-size: 18px;
+      padding: 7px 25px;
+
+      &:nth-child(2) {
+        padding: 7px 40px;
+      }
+    }
+
+    @media(max-width: 480px) {
+      margin-top: 15px;
+    }
+  }
+`
+
+export const Invite = styled.button`
+  padding: 8px 35px;
+  margin: 0 10px;
+  color: white;
+  font-size: 19px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  background: #FF6D00;
+  cursor: pointer;
+  transition: all .2s ease;
+
+  &:hover {
+    background: #e86402;
+    transition: all .2s ease;
+  }
+
+  @media(max-width: 530px) {
+    font-size: 18px;
+    padding: 7px 30px;
+  }
+
+  @media(max-width: 480px) {
+    padding: 7px 107px;
+    margin-top: 15px;
+  }
 `

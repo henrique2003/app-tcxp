@@ -1,12 +1,14 @@
 import Header from './Header'
-import Modal from './Modal'
+import Auth from './Modals/Auth'
 import Footer from './Footer'
-import { DeleteAccount, OutGroup } from './ComfirmAlert'
+import { DeleteAccount, OutGroup } from './Modals/ComfirmAlert'
+import IniviteGroup from './Modals/IniviteGroup'
 
 export {
   Header,
-  Modal,
+  Auth,
   Footer,
   DeleteAccount,
+  IniviteGroup,
   OutGroup
 }
