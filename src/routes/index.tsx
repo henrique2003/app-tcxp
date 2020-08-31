@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { Home, About, Questions, EmailConfirmation, Places, Profile } from '../pages'
+import { Home, About, Questions, EmailConfirmation, Places, Profile, Evaluation } from '../pages'
 
 const Routes: React.FC = () => {
   return (
@@ -15,6 +15,7 @@ const Routes: React.FC = () => {
       <Route path="/opcoes/lugares" component={Places} />
       {/* Dashboard */}
       <Route path="/dashboard/perfil" component={Profile} />
+      <Route path="/dashboard/avaliacao/:id" component={Evaluation} />
     </>
   )
 }
