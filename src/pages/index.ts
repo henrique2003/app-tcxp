@@ -4,6 +4,7 @@ import Questions from './Questions'
 import EmailConfirmation from './EmailConfirmation'
 import Places from './Places'
 import Profile from './Profile'
+import Evaluation from './Evaluation'
 
 export {
   Home,
@@ -11,5 +12,6 @@ export {
   Questions,
   EmailConfirmation,
   Places,
-  Profile
+  Profile,
+  Evaluation
 }
