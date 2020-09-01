@@ -5,6 +5,9 @@ import EmailConfirmation from './EmailConfirmation'
 import Places from './Places'
 import Profile from './Profile'
 import Evaluation from './Evaluation'
+import Explore from './Explore'
+import Chat from './Chat'
+import Dashboard from './Dashboard'
 
 export {
   Home,
@@ -13,5 +16,8 @@ export {
   EmailConfirmation,
   Places,
   Profile,
-  Evaluation
+  Evaluation,
+  Explore,
+  Chat,
+  Dashboard
 }
