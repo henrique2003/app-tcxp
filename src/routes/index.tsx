@@ -1,6 +1,17 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { Home, About, Questions, EmailConfirmation, Places, Profile, Evaluation } from '../pages'
+import {
+  Home,
+  About,
+  Questions,
+  EmailConfirmation,
+  Places,
+  Profile,
+  Evaluation,
+  Explore,
+  Chat,
+  Dashboard
+} from '../pages'
 
 const Routes: React.FC = () => {
   return (
@@ -14,8 +25,12 @@ const Routes: React.FC = () => {
       {/* Places */}
       <Route path="/opcoes/lugares" component={Places} />
       {/* Dashboard */}
+      <Route path="/dashboard" exact component={Dashboard} />
       <Route path="/dashboard/perfil" component={Profile} />
       <Route path="/dashboard/avaliacao/:id" component={Evaluation} />
+      <Route path="/dashboard/explorar" component={Explore} />
+      <Route path="/dashboard/chat" component={Chat} />
+      <Route path="/dashboard/solicitacoes" component={Chat} />
     </>
   )
 }

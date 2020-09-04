@@ -44,16 +44,15 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) =
   function linksNavWebLogged (): JSX.Element {
     return (
       <>
-        <li><NavLink to="/">Início</NavLink></li>
-        <li><NavLink to="/sobre">Explorar</NavLink></li>
-        <li><NavLink to="/duvidas">Chat</NavLink></li>
-        <li><NavLink to="/duvidas">Perfil</NavLink></li>
+        <li><NavLink to="/dashboard">Início</NavLink></li>
+        <li><NavLink to="/dashboard/explorar">Explorar</NavLink></li>
+        <li><NavLink to="/dashboard/chat">Chat</NavLink></li>
+        <li><NavLink to="/dashboard/perfil">Perfil</NavLink></li>
         {/* DropDown */}
         <li onClick={() => setDropDown(!DropDown)}>
           <img src={NavbarArrow} alt="More"/>
           <ul>
-            <li><NavLink to="/sobre">Solicitações </NavLink></li>
-            <li><NavLink to="/duvidas">Denúnciar</NavLink></li>
+            <li><NavLink to="/dashboard/solicitacoes">Solicitações</NavLink></li>
             <li><NavLink to="/duvidas">Sair</NavLink></li>
           </ul>
         </li>
@@ -79,12 +78,11 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) =
   function linksNavMobileLogged (): JSX.Element {
     return (
       <>
-        <li><NavLink to="/">Início</NavLink></li>
-        <li><NavLink to="/sobre">Explorar</NavLink></li>
-        <li><NavLink to="/duvidas">Chat</NavLink></li>
-        <li><NavLink to="/duvidas">Perfil</NavLink></li>
-        <li><NavLink to="/sobre">Solicitações </NavLink></li>
-        <li><NavLink to="/duvidas">Denúnciar</NavLink></li>
+        <li><NavLink to="/dashboard">Início</NavLink></li>
+        <li><NavLink to="/dashboard/explorar">Explorar</NavLink></li>
+        <li><NavLink to="/dashboard/chat">Chat</NavLink></li>
+        <li><NavLink to="/dashboard/perfil">Perfil</NavLink></li>
+        <li><NavLink to="/dashboard/solicitacoes">Solicitações</NavLink></li>
         <li><NavLink to="/duvidas">Sair</NavLink></li>
       </>
     )

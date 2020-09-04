@@ -139,14 +139,10 @@ export const StyledHeader = styled.header<HeaderProps>`
               padding-bottom: 48px;
               border-bottom: 1px solid rgba(0,0,0,0.3);
 
-              &:nth-child(3) {
+              &:nth-child(2) {
                 border-bottom: none;
                 margin-top: 5px;
                 padding-bottom: 40px;
-              }
-              
-              &:nth-child(2) {
-                margin-top: 5px;
               }
             }
           }

@@ -68,6 +68,9 @@ import Comment from './images/profile/comment.png'
 // Group
 import PictureGroup from './images/group/picture_group.png'
 
+// Explore
+import BgExplore from './images/explore/explore.png'
+
 export {
   ArrowRight,
   Group,
@@ -115,5 +118,6 @@ export {
   NavbarArrow,
   Pencil,
   Comment,
-  PictureGroup
+  PictureGroup,
+  BgExplore
 }
