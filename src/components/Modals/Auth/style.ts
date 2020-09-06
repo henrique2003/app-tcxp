@@ -2,12 +2,14 @@ import styled from 'styled-components'
 
 export const StyledModal = styled.div`
   position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
 `
 export const Row = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
-  // Tablets
+  /* Tablets */
   @media(max-width: 700px) {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -25,7 +27,7 @@ export const BackgroundLeft = styled.div<BackgroundProps>`
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   
-  // Tablets
+  /* Tablets */
   @media(max-width: 700px) {
     display: none;
   }
@@ -33,6 +35,14 @@ export const BackgroundLeft = styled.div<BackgroundProps>`
 
 export const Content = styled.div`
   padding: 20px 40px;
+  background: white;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  
+  /* Tablets */
+  @media(max-width: 700px) {
+    border-radius: 15px;
+  }
   
   .close {
     position: absolute;
@@ -104,7 +114,7 @@ export const Content = styled.div`
     }
 
     button {
-      border none;
+      border: none;
       text-decoration: underline;
       color: rgba(0,0,0,0.8);
       font-size: 16px;
