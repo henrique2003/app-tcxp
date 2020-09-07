@@ -1,5 +1,5 @@
 import React from 'react'
-import { Auth, OutGroup, DeleteAccount, IniviteGroup } from './components'
+import { Auth, ConfirmDenounce, DeleteAccount, IniviteGroup } from './components'
 
 const Modals: React.FC = () => {
   return (
@@ -7,7 +7,7 @@ const Modals: React.FC = () => {
       <Auth />
       <DeleteAccount />
       <IniviteGroup />
-      <OutGroup />
+      <ConfirmDenounce />
     </>
   )
 }

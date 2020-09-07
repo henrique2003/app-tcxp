@@ -1,7 +1,7 @@
 import DeleteAccount from './DeleteAccount'
-import OutGroup from './OutGroup'
+import ConfirmDenounce from './ConfirmDenounce'
 
 export {
   DeleteAccount,
-  OutGroup
+  ConfirmDenounce
 }

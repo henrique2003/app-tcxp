@@ -10,6 +10,7 @@ import Face from './icons/face.png'
 import Checked from './icons/checked.png'
 import NavbarArrow from './icons/navbar_arrow.png'
 import Pencil from './icons/pencil.png'
+import BadFace from './icons/bad_face.png'
 
 // Images
 // Home
@@ -119,5 +120,6 @@ export {
   Pencil,
   Comment,
   PictureGroup,
-  BgExplore
+  BgExplore,
+  BadFace
 }

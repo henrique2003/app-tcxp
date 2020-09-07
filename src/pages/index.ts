@@ -8,6 +8,8 @@ import Evaluation from './Evaluation'
 import Explore from './Explore'
 import Chat from './Chat'
 import Dashboard from './Dashboard'
+import Denounce from './Denounce'
+import Request from './Request'
 
 export {
   Home,
@@ -19,5 +21,7 @@ export {
   Evaluation,
   Explore,
   Chat,
-  Dashboard
+  Dashboard,
+  Denounce,
+  Request
 }
