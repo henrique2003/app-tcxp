@@ -10,7 +10,9 @@ import {
   Evaluation,
   Explore,
   Chat,
-  Dashboard
+  Dashboard,
+  Denounce,
+  Request
 } from '../pages'
 
 const Routes: React.FC = () => {
@@ -30,7 +32,8 @@ const Routes: React.FC = () => {
       <Route path="/dashboard/avaliacao/:id" component={Evaluation} />
       <Route path="/dashboard/explorar" component={Explore} />
       <Route path="/dashboard/chat" component={Chat} />
-      <Route path="/dashboard/solicitacoes" component={Chat} />
+      <Route path="/dashboard/solicitacoes" component={Request} />
+      <Route path="/dashboard/denunciar/:id" component={Denounce} />
     </>
   )
 }
