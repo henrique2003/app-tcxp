@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import {
   Home,
   About,
@@ -13,14 +13,15 @@ import {
   Dashboard,
   Denounce,
   Request,
-  CreateChat
+  CreateChat,
+  EditChat
 } from '../pages'
 
 const Routes: React.FC = () => {
   return (
-    <>
+    <Switch>
       {/* Site */}
-      <Route path="/" exact component={Home} />
+      <Route path="/" exact component={Home}/>
       <Route path="/sobre" component={About} />
       <Route path="/duvidas" component={Questions} />
       {/* Email */}
@@ -34,10 +35,12 @@ const Routes: React.FC = () => {
       <Route path="/dashboard/explorar" component={Explore} />
       <Route path="/dashboard/chat" exact component={Chat} />
       <Route path="/dashboard/chat/criar" component={CreateChat} />
-      <Route path="/dashboard/chat/editar" component={Chat} />
+      <Route path="/dashboard/chat/editar/:id" component={EditChat} />
       <Route path="/dashboard/solicitacoes" component={Request} />
       <Route path="/dashboard/denunciar/:id" component={Denounce} />
-    </>
+      {/* Default */}
+      <Route component={Home}/>
+    </Switch>
   )
 }
 

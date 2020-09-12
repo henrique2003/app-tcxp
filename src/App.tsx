@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Switch, withRouter, RouteComponentProps } from 'react-router-dom'
+import { BrowserRouter, withRouter, RouteComponentProps } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { Header, Footer } from './components'
 import Modals from './Modals'
@@ -29,11 +29,13 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
+        {/* Header */}
         <WithHeader />
+        {/* Hidden Modals */}
         <Modals />
-        <Switch>
-          <Routes />
-        </Switch>
+        {/* Routes */}
+        <Routes />
+        {/* Footer */}
         <WithFooter />
       </BrowserRouter>
     </Provider>
