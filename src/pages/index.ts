@@ -11,6 +11,7 @@ import Dashboard from './Dashboard'
 import Denounce from './Denounce'
 import Request from './Request'
 import CreateChat from './CreateChat'
+import EditChat from './EditChat'
 
 export {
   Home,
@@ -25,5 +26,6 @@ export {
   Dashboard,
   Denounce,
   Request,
-  CreateChat
+  CreateChat,
+  EditChat
 }
