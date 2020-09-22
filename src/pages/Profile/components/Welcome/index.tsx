@@ -73,8 +73,8 @@ const Welcome: React.FC<Props> = ({ changeInviteGroupModal, inviteGroup }) => {
         <Submit type="submit" changed={Change} onClick={() => setChange(!Change)}><FaCheck/></Submit>
       </FormName>
       <Flex>
-        <Link to="">Denunciar</Link>
-        <Link to="">Avaliar</Link>
+        <Link to="/dashboard/denunciar/1234">Denunciar</Link>
+        <Link to="/dashboard/avaliacao/1234">Avaliar</Link>
         <Invite type="button" onClick={() => changeInviteGroupModal(!inviteGroup)}>Convidar</Invite>
       </Flex>
     </StyledWelcome>
