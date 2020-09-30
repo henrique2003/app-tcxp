@@ -21,3 +21,12 @@
   background: #8a8989;
   border-radius: 5px;
 }
+
+.error {
+  color: #da0404;
+  display: block;
+}
+
+.center {
+  text-align: center;
+}

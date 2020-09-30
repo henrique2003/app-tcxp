@@ -6,6 +6,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
-    '@typescript-eslint/default-param-last': 'off'
+    '@typescript-eslint/default-param-last': 'off',
+    '@typescript-eslint/no-floating-promises': 'off'
   }
 }
