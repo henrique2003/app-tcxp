@@ -10,7 +10,7 @@ import { Dispatch } from 'redux'
 
 type Props = PropsFromRedux
 
-const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) => {
+const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal, isLogged }) => {
   const [DropDown, setDropDown] = useState<boolean>(false)
 
   const payloadModalRegister: StateDefault = {
@@ -22,9 +22,6 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) =
     open: !modal.open,
     component: 'Login'
   }
-
-  // If logged
-  const logged = true
 
   // Navbar web no logged
   function linksNavWebNoLogged (): JSX.Element {
@@ -89,7 +86,7 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) =
   }
 
   return (
-    <StyledHeader navShow={navbar} logged={logged} dropDown={DropDown}>
+    <StyledHeader navShow={navbar} logged={isLogged} dropDown={DropDown}>
       <div className="navbar_web">
         <div className="toggle_show" onClick={() => changeNavbar(!navbar)}>
           <IoMdClose />
@@ -102,7 +99,7 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) =
           <h3>tcxp</h3>
           {/* Links */}
           <ul>
-            {logged ? linksNavWebLogged() : linksNavWebNoLogged()}
+            {isLogged ? linksNavWebLogged() : linksNavWebNoLogged()}
           </ul>
         </div>
       </div>
@@ -110,7 +107,7 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal }) =
       <div className="navbar_mobile">
         <h3>tcxp</h3>
         <ul>
-          {logged ? linksNavMobileLogged() : linksNavMobileNoLogged()}
+          {isLogged ? linksNavMobileLogged() : linksNavMobileNoLogged()}
         </ul>
       </div>
     </StyledHeader>
@@ -123,6 +120,7 @@ interface RootState {
     open: boolean
     component: typeof Register | typeof Login
   }
+  isLogged: boolean
 }
 
 interface DispatchProps {
@@ -132,7 +130,8 @@ interface DispatchProps {
 
 const mapState = (state: RootState): RootState => ({
   navbar: state.navbar,
-  modal: state.modal
+  modal: state.modal,
+  isLogged: state.isLogged
 })
 
 const mapDispatch = (dispatch: Dispatch): DispatchProps => ({
