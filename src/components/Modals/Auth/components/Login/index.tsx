@@ -61,7 +61,6 @@ const Login: React.FC<Props> = ({ closeModal, goToCreateAccount, changeLogged, c
   async function onSubmit (e: FormEvent): Promise<void> {
     e.preventDefault()
 
-    console.log(FormData)
     // Validations
     const requirementFields = ['email', 'password']
     if (!isValidFields(requirementFields, FormData)) {
@@ -86,7 +85,9 @@ const Login: React.FC<Props> = ({ closeModal, goToCreateAccount, changeLogged, c
       toast.success('Entrou com sucesso')
       history.push('/dashboard')
     } catch (error) {
-      setError(error.response.data.body)
+      if (error.response.data.body) {
+        setError(error.response.data.body)
+      }
     }
   }
 
