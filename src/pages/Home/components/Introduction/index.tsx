@@ -22,7 +22,7 @@ interface FormData {
 
 type Props = PropsFromRedux & RouteComponentProps<any>
 
-const Introduction: React.FC<Props> = ({ navbar, history, changeLogged }) => {
+const Introduction: React.FC<Props> = ({ navbar, history, isLogged, changeLogged }) => {
   const [Error, setError] = useState<string>('')
   const [UseTerms, setUseTerms] = useState<boolean>(false)
   const [FormData, setFormData] = useState<FormData>({
