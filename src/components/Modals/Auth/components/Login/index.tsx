@@ -86,7 +86,9 @@ const Login: React.FC<Props> = ({ closeModal, goToCreateAccount, changeLogged, c
       toast.success('Entrou com sucesso')
       history.push('/dashboard')
     } catch (error) {
-      setError(error.response.data.body)
+      if (error.response.data.body) {
+        setError(error.response.data.body)
+      }
     }
   }
 
