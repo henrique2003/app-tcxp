@@ -66,7 +66,7 @@ const Introduction: React.FC<Props> = ({ navbar, history, isLogged, changeLogged
       setToken()
 
       // Dispatch redux
-      changeLogged(!isLogged)
+      changeLogged(true)
 
       // Redirect
       toast.success('Cadastrado com sucesso')
