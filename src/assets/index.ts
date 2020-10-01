@@ -11,6 +11,7 @@ import Checked from './icons/checked.png'
 import NavbarArrow from './icons/navbar_arrow.png'
 import Pencil from './icons/pencil.png'
 import BadFace from './icons/bad_face.png'
+import Send from './icons/send.png'
 
 // Images
 // Home
@@ -121,5 +122,6 @@ export {
   Comment,
   PictureGroup,
   BgExplore,
-  BadFace
+  BadFace,
+  Send
 }

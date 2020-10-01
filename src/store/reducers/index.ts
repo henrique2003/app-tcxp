@@ -4,13 +4,15 @@ import modal from './modal'
 import deleteAccount from './deleteAccount'
 import inviteGroup from './inviteGroup'
 import comfirmDenounce from './comfirmDenounce'
+import isLogged from './isLogged'
 
 export const rootReducer = combineReducers({
   navbar,
   modal,
   deleteAccount,
   inviteGroup,
-  comfirmDenounce
+  comfirmDenounce,
+  isLogged
 })
 
-export type RootReducer = ReturnType<typeof rootReducer>
+export type RootState = ReturnType<typeof rootReducer>

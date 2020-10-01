@@ -5,6 +5,8 @@ import { Header, Footer } from './components'
 import Modals from './Modals'
 import Routes from './routes'
 import store from './store'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import './global.css'
 
@@ -31,6 +33,7 @@ const App: React.FC = () => {
       <BrowserRouter>
         {/* Header */}
         <WithHeader />
+        <ToastContainer autoClose={2200} />
         {/* Hidden Modals */}
         <Modals />
         {/* Routes */}

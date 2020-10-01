@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
 import { Container } from '../../styles'
 import { Pencil } from '../../assets'
@@ -21,7 +22,9 @@ const CreateChat: React.FC = () => {
       <Trace></Trace>
       <StyledCreateChat>
         <Container>
-          <MdKeyboardArrowLeft color="#FF6D00"/>
+          <Link to="/dashboard/chat">
+            <MdKeyboardArrowLeft color="#FF6D00"/>
+          </Link>
           <Title>Nova Conversa</Title>
           <Form>
             <OrangeCircle>

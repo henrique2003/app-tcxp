@@ -270,6 +270,7 @@ export const StyledHeader = styled.header<HeaderProps>`
       li {
         margin-top: 15px;
         font-size: 24px;
+        color: rgba(0, 0, 0, 0.8);
 
         a {
           color: rgba(0, 0, 0, 0.8);
@@ -285,6 +286,7 @@ export const StyledHeader = styled.header<HeaderProps>`
           height: 40px;
           line-height: 38px;
           letter-spacing: 2px;
+          color: white;
           ${props => props.logged && css`
             text-align: left;
             background: transparent;
