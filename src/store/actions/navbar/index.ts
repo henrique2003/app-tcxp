@@ -1,6 +1,6 @@
-import { CHANGE_NAVBAR, NavbarActionType } from './types'
+import { CHANGE_NAVBAR, NavbarActionType, StateDefault } from './types'
 
-export function changeNavbar (payload: boolean): NavbarActionType {
+export function changeNavbar (payload: StateDefault): NavbarActionType {
   return {
     type: CHANGE_NAVBAR,
     payload

@@ -4,6 +4,14 @@ import Questions from './Questions'
 import EmailConfirmation from './EmailConfirmation'
 import Places from './Places'
 import Profile from './Profile'
+import Evaluation from './Evaluation'
+import Explore from './Explore'
+import Chat from './Chat'
+import Dashboard from './Dashboard'
+import Denounce from './Denounce'
+import Request from './Request'
+import CreateChat from './CreateChat'
+import EditChat from './EditChat'
 
 export {
   Home,
@@ -11,5 +19,13 @@ export {
   Questions,
   EmailConfirmation,
   Places,
-  Profile
+  Profile,
+  Evaluation,
+  Explore,
+  Chat,
+  Dashboard,
+  Denounce,
+  Request,
+  CreateChat,
+  EditChat
 }

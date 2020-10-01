@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { connect, ConnectedProps } from 'react-redux'
+import { Dispatch } from 'redux'
+import { changeInviteGroupModal } from '../../../../store/actions'
+import { StateDefault } from '../../../../store/actions/iniviteGoup/types'
 import { FaCheck } from 'react-icons/fa'
 import { GoPlus } from 'react-icons/go'
 import { Pencil, BgProfile, PictureProfile } from '../../../../assets'
@@ -11,10 +16,34 @@ import {
   Salutation,
   Submit,
   ImageLabel,
-  InputImage
+  InputImage,
+  Flex,
+  Invite
 } from './style'
 
-const Welcome: React.FC = () => {
+interface RootState {
+  inviteGroup: boolean
+}
+
+const mapState = (state: RootState): RootState => ({
+  inviteGroup: state.inviteGroup
+})
+
+interface DispatchProps {
+  changeInviteGroupModal: (payload: StateDefault) => void
+}
+
+const mapDispatch = (dispatch: Dispatch): DispatchProps => ({
+  changeInviteGroupModal: (payload) => dispatch(changeInviteGroupModal(payload))
+})
+
+const connector = connect(mapState, mapDispatch)
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+type Props = PropsFromRedux
+
+const Welcome: React.FC<Props> = ({ changeInviteGroupModal, inviteGroup }) => {
   const [Change, setChange] = useState<boolean>(false)
   const [Input, setInput] = useState<string>('')
 
@@ -43,8 +72,13 @@ const Welcome: React.FC = () => {
         <PencilIcon src={Pencil} alt={'Olá Mário'} changed={Change} onClick={() => setChange(!Change)}/>
         <Submit type="submit" changed={Change} onClick={() => setChange(!Change)}><FaCheck/></Submit>
       </FormName>
+      <Flex>
+        <Link to="/dashboard/denunciar/1234">Denunciar</Link>
+        <Link to="/dashboard/avaliacao/1234">Avaliar</Link>
+        <Invite type="button" onClick={() => changeInviteGroupModal(!inviteGroup)}>Convidar</Invite>
+      </Flex>
     </StyledWelcome>
   )
 }
 
-export default Welcome
+export default connector(Welcome)

@@ -5,4 +5,6 @@ interface ChangeAction {
   payload: boolean
 }
 
+export type StateDefault = boolean
+
 export type NavbarActionType = ChangeAction

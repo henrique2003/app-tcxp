@@ -10,6 +10,7 @@ import Face from './icons/face.png'
 import Checked from './icons/checked.png'
 import NavbarArrow from './icons/navbar_arrow.png'
 import Pencil from './icons/pencil.png'
+import BadFace from './icons/bad_face.png'
 
 // Images
 // Home
@@ -63,6 +64,13 @@ import Japan from './images/places/japan.png'
 // Profile
 import BgProfile from './images/profile/bg_profile.png'
 import PictureProfile from './images/profile/picture_profile.png'
+import Comment from './images/profile/comment.png'
+
+// Group
+import PictureGroup from './images/group/picture_group.png'
+
+// Explore
+import BgExplore from './images/explore/explore.png'
 
 export {
   ArrowRight,
@@ -109,5 +117,9 @@ export {
   BgProfile,
   PictureProfile,
   NavbarArrow,
-  Pencil
+  Pencil,
+  Comment,
+  PictureGroup,
+  BgExplore,
+  BadFace
 }
