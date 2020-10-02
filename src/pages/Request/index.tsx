@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { PictureProfile } from '../../assets'
 import RequestItem from './RequestItem'
 import { Title, Grid, StyledRequest } from './style'
 
 const Request: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <StyledRequest>
       <Title>Suas Solicitações</Title>

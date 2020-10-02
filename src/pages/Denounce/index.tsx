@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react'
+import React, { FormEvent, useEffect } from 'react'
 import { Dispatch } from 'redux'
 import { connect, ConnectedProps } from 'react-redux'
 import { changeConfirmDenounceModal } from '../../store/actions'
@@ -40,6 +40,10 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 type Props = PropsFromRedux
 
 const Denounce: React.FC<Props> = ({ changeConfirmDenounceModal, comfirmDenounce: open }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   function onSubmit (e: FormEvent): void {
     e.preventDefault()
     changeConfirmDenounceModal(!open)

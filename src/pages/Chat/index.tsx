@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { CgMathPlus } from 'react-icons/cg'
 import { RiMenu5Fill } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
@@ -26,6 +26,10 @@ import {
 } from './style'
 
 const Chat: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   const [SideOpen, setSideOpen] = useState<boolean>(false)
 
   return (

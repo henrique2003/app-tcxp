@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import StarRatingComponent from 'react-star-rating-component'
 import EvaluationItem from '../Profile/components/Evaluation/EvaluationItem'
 import { Container } from '../../styles'
@@ -20,6 +20,10 @@ import { Comment, ArrowRight } from '../../assets'
 
 const Evaluation: React.FC = () => {
   const [Eval, setEval] = useState<number>(3)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <StyledEvaluation>
