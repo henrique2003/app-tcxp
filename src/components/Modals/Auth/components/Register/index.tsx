@@ -14,7 +14,6 @@ import { BackgroundLeft, Content } from '../../style'
 import { BridgeResgister } from '../../../../../assets'
 import { changeLogged, changeNavbar } from '../../../../../store/actions'
 import { StateDefault as StateDefaultLogged } from '../../../../../store/actions/isLogged/types'
-import { StateDefault as StateDefaultModal } from '../../../../../store/actions/modal/types'
 import { StateDefault as StateDefaultNavbar } from '../../../../../store/actions/navbar/types'
 
 interface FormData {
@@ -70,7 +69,6 @@ const Register: React.FC<Props> = ({ closeModal, goToLogin, history, changeLogge
   async function onSubmit (e: FormEvent): Promise<void> {
     e.preventDefault()
 
-    console.log(FormData)
     // Validations
     const requirementFields = ['name', 'email', 'password', 'passwordConfirmation']
     if (!isValidFields(requirementFields, FormData)) {
@@ -103,7 +101,9 @@ const Register: React.FC<Props> = ({ closeModal, goToLogin, history, changeLogge
       toast.success('Cadastrado com sucesso')
       history.push('/dashboard')
     } catch (error) {
-      setError(error.response.data.body)
+      if (error.response.data.body) {
+        setError(error.response.data.body)
+      }
     }
   }
 

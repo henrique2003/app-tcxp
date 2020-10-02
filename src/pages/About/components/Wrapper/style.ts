@@ -1,17 +1,10 @@
 import styled from 'styled-components'
 
-interface StyledWrapperProps {
-  background: string
-}
-
-export const StyledWrapper = styled.div<StyledWrapperProps>`
-  background: url(${props => props.background});
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50%, 50%;
+export const StyledWrapper = styled.div`
+  background: #e6e5e5;
   color: white;
-  padding: 60px 0;
-  margin-bottom: 30px;
+  padding: 80px 0;
+  color: rgba(0,0,0,0.7);
 
   h4 {
     margin-bottom: 15px;
@@ -21,7 +14,6 @@ export const StyledWrapper = styled.div<StyledWrapperProps>`
 
   p {
     font-size: 20px;
-    color: rgba(255,255,255,0.83);
   }
 
   @media(max-width: 1000px) {

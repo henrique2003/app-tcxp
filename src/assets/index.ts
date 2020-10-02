@@ -73,6 +73,14 @@ import PictureGroup from './images/group/picture_group.png'
 // Explore
 import BgExplore from './images/explore/explore.png'
 
+// Dashboard
+import BgWelcomeDashboard from './images/dashboard/bg_welcome_dashboard.png'
+import LocationOne from './images/dashboard/location-1.png'
+import LocationTwo from './images/dashboard/location-2.png'
+import LocationThree from './images/dashboard/location-3.png'
+import LocationFour from './images/dashboard/location-4.jpg'
+import MostVisited from './images/dashboard/most_visited.jpg'
+
 export {
   ArrowRight,
   Group,
@@ -123,5 +131,11 @@ export {
   PictureGroup,
   BgExplore,
   BadFace,
-  Send
+  Send,
+  BgWelcomeDashboard,
+  LocationOne,
+  LocationTwo,
+  LocationThree,
+  MostVisited,
+  LocationFour
 }
