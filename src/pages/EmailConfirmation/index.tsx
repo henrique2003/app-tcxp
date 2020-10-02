@@ -77,6 +77,20 @@ const EmailConfirmation: React.FC<Props> = ({ changeLogged, history }) => {
     }
   }
 
+  async function resendEmailConfirmation (): Promise<void> {
+    try {
+      await api.get('/email/confirmation/resend')
+
+      toast.success('Email reenviado')
+    } catch (error) {
+      if (error.response.data.body) {
+        toast.error(error.response.data.body)
+      } else if (error.response.data) {
+        toast.error(error.response.data.body)
+      }
+    }
+  }
+
   return (
     <StyledEmailConfirmation>
       <Container>
@@ -98,7 +112,11 @@ const EmailConfirmation: React.FC<Props> = ({ changeLogged, history }) => {
               </Button>
             </DivButton>
           </Form>
-          <CodeResend>Não recebeu o email?<CodeResendSpan type="submit">Clique aqui para o reenvio</CodeResendSpan></CodeResend>
+          <CodeResend>Não recebeu o email?
+            <CodeResendSpan
+              type="button"
+              onClick={async () => await resendEmailConfirmation()}>
+            Clique aqui para o reenvio</CodeResendSpan></CodeResend>
         </Div>
       </Container>
     </StyledEmailConfirmation>
