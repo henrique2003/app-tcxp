@@ -58,7 +58,7 @@ const Dashboard: React.FC<Props> = ({ changeLogged, history }) => {
     setToken()
     async function loadUser (): Promise<void> {
       try {
-        const res = await api.get('/load')
+        const res = await api.get('/load/user')
 
         setUser(res.data.body)
 
