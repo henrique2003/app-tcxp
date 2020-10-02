@@ -99,7 +99,7 @@ const Register: React.FC<Props> = ({ closeModal, goToLogin, history, changeLogge
 
       // Redirect
       toast.success('Cadastrado com sucesso')
-      history.push('/dashboard')
+      history.push('/email/confirmar')
     } catch (error) {
       if (error.response.data.body) {
         setError(error.response.data.body)

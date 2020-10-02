@@ -11,7 +11,7 @@ export const StyledLogin = styled.div`
       text-transform: none !important;
     }
 
-    //Ruduce font size for Tablets
+    /* Ruduce font size for Tablets */
     @media(max-width: 840px) {
       margin-bottom: 30px;
 
@@ -20,7 +20,7 @@ export const StyledLogin = styled.div`
       }
     }
 
-    //Ruduce font size for celphones
+    /* Ruduce font size for celphones */
     @media(max-width: 400px) {
       margin-bottom: 25px;
 
@@ -44,7 +44,7 @@ export const StyledLogin = styled.div`
     max-width: 100px;
   }
 
-  //Celphones
+  /* Celphones */
   @media(max-width: 700px) {
     height: 400px;
 
@@ -57,7 +57,7 @@ export const StyledLogin = styled.div`
     }
   }
 
-  //Small celphones
+  /* Small celphones */
   @media(max-width: 470px) {
     height: 370px;
 
@@ -70,7 +70,7 @@ export const StyledLogin = styled.div`
     }
   }
 
-  //Ruduce all lengths
+  /* Ruduce all lengths */
   @media(max-width: 380px) {
     height: 330px;
 

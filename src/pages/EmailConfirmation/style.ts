@@ -1,12 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledEmailConfirmation = styled.div`
-  margin-top: 40px;
-
-  svg {
-    font-size: 60px;
-    color: rgba(0, 0, 0, 0.8);
-  }
+  margin-top: 200px;
 `
 
 export const Div = styled.div`
