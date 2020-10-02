@@ -59,7 +59,6 @@ const Introduction: React.FC<Props> = ({ navbar, history, changeLogged }) => {
     // Register
     try {
       const res = await api.post('/users', FormData)
-      console.log(res.data)
 
       // Set token
       localStorage.setItem('token', res.data.token)
@@ -70,7 +69,7 @@ const Introduction: React.FC<Props> = ({ navbar, history, changeLogged }) => {
 
       // Redirect
       toast.success('Cadastrado com sucesso')
-      history.push('/dashboard')
+      history.push('/email/confirmar')
     } catch (error) {
       setError(error.response.data.body)
     }

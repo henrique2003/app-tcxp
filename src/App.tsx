@@ -14,7 +14,7 @@ import './global.css'
 const App: React.FC = () => {
   // WithRouter Header
   const WithHeader = withRouter(({ location }: RouteComponentProps): JSX.Element => {
-    if (location.pathname !== '/email/confirmar/' &&
+    if (location.pathname !== '/email/confirmar' &&
       location.pathname !== '/opcoes/lugares'
     ) return <Header />
     else return <></>

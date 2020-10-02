@@ -23,7 +23,7 @@
 }
 
 .error {
-  color: #da0404;
+  color: #da0404 !important;
   display: block;
 }
 
