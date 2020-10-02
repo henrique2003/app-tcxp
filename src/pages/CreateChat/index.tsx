@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
 import { Container } from '../../styles'
@@ -17,6 +17,10 @@ import {
 } from './style'
 
 const CreateChat: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <>
       <Trace></Trace>

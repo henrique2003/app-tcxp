@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BsSearch } from 'react-icons/bs'
 import { BgExplore, PictureProfile } from '../../assets'
 import { Container } from '../../styles'
@@ -6,6 +6,10 @@ import { DivSearch, Input, Phrase, StyledExplore, DivInput, TitlePersons, Grid }
 import PersonItem from './PersonItem'
 
 const Explore: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <StyledExplore>
       <DivSearch url={BgExplore}>

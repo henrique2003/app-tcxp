@@ -54,6 +54,7 @@ const Dashboard: React.FC<Props> = ({ changeLogged, history }) => {
   })
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     setToken()
     async function loadUser (): Promise<void> {
       try {

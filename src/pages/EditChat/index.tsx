@@ -31,6 +31,7 @@ const EditChat: React.FC = () => {
 
   useEffect(() => {
     setGroupName('Grupo Japão')
+    window.scrollTo(0, 0)
   }, [])
 
   return (

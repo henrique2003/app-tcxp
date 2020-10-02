@@ -40,7 +40,6 @@ const EmailConfirmation: React.FC<Props> = ({ changeLogged, history }) => {
     async function load (): Promise<void> {
       try {
         const res = await api.get('/load')
-        console.log(res.data)
 
         changeLogged(true)
 
@@ -49,7 +48,7 @@ const EmailConfirmation: React.FC<Props> = ({ changeLogged, history }) => {
           history.push('/dashboard')
         }
       } catch (error) {
-        toast.success('Acesso negado')
+        toast.error('Acesso negado')
         history.push('/')
       }
     }
@@ -67,12 +66,14 @@ const EmailConfirmation: React.FC<Props> = ({ changeLogged, history }) => {
       })
 
       toast.success('Email confirmado')
-      history.push('/dashboard')
+      history.push('/opcoes/lugares')
     } catch (error) {
       if (error.response.data.body) {
         toast.error(error.response.data.body)
       } else if (error.response.data) {
         toast.error(error.response.data.body)
+      } else {
+
       }
     }
   }
