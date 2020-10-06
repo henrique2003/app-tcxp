@@ -27,3 +27,12 @@ export const Grid = styled.div`
     grid-template-columns: repeat(1, 1fr);
   }
 `
+
+export const NoAvaliate = styled.p`
+  text-align: center;
+  font-size: 19px;
+  color: rgba(0,0,0,0.7);
+  width: 100%;
+  margin: 0 15px;
+  margin-top: 50px;
+`

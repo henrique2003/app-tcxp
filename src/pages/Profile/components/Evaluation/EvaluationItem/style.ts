@@ -113,6 +113,7 @@ export const Comment = styled.p`
 export const Name = styled.p`
   font-size: 18px;
   margin-top: 10px;
+  text-align: center;
 
   @media(max-width: 1100px) {
     font-size: 20px;

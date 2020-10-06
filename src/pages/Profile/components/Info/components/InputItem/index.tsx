@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { SyntheticEvent } from 'react'
 import { DivTitleItem, SpanTitleItem, TitleItem, AnswerRow, Answer, Input } from './style'
 
 interface Props {
@@ -6,9 +6,11 @@ interface Props {
   name: string
   value: string
   disabled: boolean
+  onChange?: (e: SyntheticEvent) => void
+  className?: string
 }
 
-const InputItem: React.FC<Props> = ({ title, name, value, disabled }) => {
+const InputItem: React.FC<Props> = ({ title, name, value, disabled, onChange, className }) => {
   return (
     <div>
       <DivTitleItem>
@@ -22,6 +24,8 @@ const InputItem: React.FC<Props> = ({ title, name, value, disabled }) => {
           value={value}
           disabled={disabled}
           length={value.length}
+          onChange={onChange}
+          className={className}
         />
       </AnswerRow>
     </div>

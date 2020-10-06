@@ -10,7 +10,7 @@ import { Pencil, BgProfile, PictureProfile } from '../../../../assets'
 import {
   StyledWelcome,
   ImageProfile,
-  FormName,
+  DivName,
   Name,
   PencilIcon,
   Salutation,
@@ -41,38 +41,59 @@ const connector = connect(mapState, mapDispatch)
 
 type PropsFromRedux = ConnectedProps<typeof connector>
 
-type Props = PropsFromRedux
+type Props = PropsFromRedux & {
+  display: boolean
+  name: string
+  imageProfile?: string
+  onSubmitName: (newName: string) => Promise<void>
+  onSubmitImage: (image: File) => Promise<void>
+}
 
-const Welcome: React.FC<Props> = ({ changeInviteGroupModal, inviteGroup }) => {
+const Welcome: React.FC<Props> = ({ changeInviteGroupModal, inviteGroup, display, name, onSubmitName, onSubmitImage, imageProfile }) => {
   const [Change, setChange] = useState<boolean>(false)
   const [Input, setInput] = useState<string>('')
+  const [Image, setImage] = useState<string>('')
 
   useEffect(() => {
-    setInput('Mário')
-  }, [])
+    setInput(name)
+    if (imageProfile) {
+      setImage(imageProfile)
+    } else {
+      setImage(PictureProfile)
+    }
+  }, [name, imageProfile])
 
   return (
     <StyledWelcome background={BgProfile}>
-      <ImageProfile image={PictureProfile}>
-        <ImageLabel htmlFor="image_profile">
-          <InputImage type="file" id="image_profile"/>
+      <ImageProfile image={Image}>
+        <ImageLabel hidden={display} htmlFor="image_profile">
+          <InputImage type="file" id="image_profile" onChange={(e) => e.target.files && onSubmitImage(e.target.files[0])}/>
           <GoPlus />
         </ImageLabel>
       </ImageProfile>
-      <FormName>
-        <Salutation>Olá</Salutation>
+      <DivName>
+        <Salutation hidden={display}>Olá</Salutation>
         <Name
+          hidden={display}
           value={Input}
           changed={Change}
           disabled={!Change}
           onChange={(e) => setInput(e.target.value)}
           lengthName={Input.length}
         />
-        <Salutation>..</Salutation>
-        <PencilIcon src={Pencil} alt={'Olá Mário'} changed={Change} onClick={() => setChange(!Change)}/>
-        <Submit type="submit" changed={Change} onClick={() => setChange(!Change)}><FaCheck/></Submit>
-      </FormName>
-      <Flex>
+        <Salutation hidden={display}>..</Salutation>
+        <PencilIcon src={Pencil} alt={'Olá Mário'} changed={Change} onClick={() => setChange(!Change)} hidden={display}/>
+        <Submit
+          type="button"
+          hidden={display}
+          changed={Change}
+          onClick={async () => {
+            setChange(!Change)
+            await onSubmitName(Input)
+          }}
+        ><FaCheck/></Submit>
+      </DivName>
+      <Flex hidden={display}>
         <Link to="/dashboard/denunciar/1234">Denunciar</Link>
         <Link to="/dashboard/avaliacao/1234">Avaliar</Link>
         <Invite type="button" onClick={() => changeInviteGroupModal(!inviteGroup)}>Convidar</Invite>
