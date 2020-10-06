@@ -1,17 +1,21 @@
 import React from 'react'
 import { StyledShortInfo, Flex, DivContent, Content } from './style'
 
-const ShortInfo: React.FC = () => {
+interface Props {
+  evaluation: number
+}
+
+const ShortInfo: React.FC<Props> = ({ evaluation }) => {
   return (
     <StyledShortInfo>
       <Flex>
         <DivContent>
           <Content>Avaliação</Content>
-          <Content>8</Content>
+          <Content>{evaluation}</Content>
         </DivContent>
         <DivContent>
           <Content>Viagens</Content>
-          <Content>11</Content>
+          <Content>0</Content>
         </DivContent>
       </Flex>
     </StyledShortInfo>

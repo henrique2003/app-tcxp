@@ -69,7 +69,7 @@ const Dashboard: React.FC<Props> = ({ changeLogged, history }) => {
       }
     }
     loadUser()
-  }, [])
+  }, [changeLogged, history])
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.

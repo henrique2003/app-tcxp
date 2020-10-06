@@ -23,7 +23,7 @@ const EvaluationItem: React.FC<Props> = ({ image, evaluation, content, name }) =
             name="evaluationOne"
             editing={false}
             starCount={5}
-            value={evaluation}
+            value={evaluation / 2}
             starColor="#FF6D00"
           />
         </DivComment>

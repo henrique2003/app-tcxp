@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 
-export const StyledDangerZone = styled.div`
+interface StyledDangerZoneProps {
+  hidden: boolean
+}
+
+export const StyledDangerZone = styled.div<StyledDangerZoneProps>`
   margin-top: 130px;
   margin-bottom: 40px;
+  display: ${props => props.hidden ? 'none' : 'block'};
 
   @media(max-width: 650px) {
     margin-top: 90px;

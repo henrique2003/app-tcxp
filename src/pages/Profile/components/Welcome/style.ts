@@ -19,15 +19,18 @@ export const StyledWelcome = styled.div<StyledWelcome>`
   }
 `
 
-export const ImageLabel = styled.label`
-  display: flex;
+interface HiddenProps {
+  hidden: boolean
+}
+
+export const ImageLabel = styled.label<HiddenProps>`
+  display: ${props => props.hidden ? 'none' : 'block'};
   cursor: pointer;
   text-align: center;
   margin: 30px auto;
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  display: block;
   transition: all .3s ease;
   background: rgba(0,0,0,0.3);
   opacity: 0;
@@ -77,9 +80,10 @@ export const ImageProfile = styled.div<ImageProfileProps>`
 interface ChangeProps {
   changed: boolean
   lengthName?: number
+  hidden: boolean
 }
 
-export const FormName = styled.form`
+export const DivName = styled.div`
   display: flex;
   justify-content: center;
 
@@ -97,7 +101,8 @@ export const FormName = styled.form`
   }
 `
 
-export const Salutation = styled.p`
+export const Salutation = styled.p<HiddenProps>`
+  display: ${props => !props.hidden ? 'block' : 'none'};
   font-size: 27px;
   font-weight: bold;
   color: white;
@@ -114,9 +119,10 @@ export const Name = styled.input<ChangeProps>`
   background: transparent;
   border: none;
   border-bottom: 1px solid ${props => props.changed ? 'white' : 'transparent'};
-  max-width: ${props => props.lengthName ? props.lengthName * 15 : '15'}px;
+  max-width: ${props => props.lengthName ? props.lengthName * 16 : '15'}px;
   margin-left: 10px;
   cursor: default;
+  display: block;
 
   @media(max-width: 600px) {
     font-size: 25px;
@@ -127,7 +133,7 @@ export const PencilIcon = styled.img<ChangeProps>`
   width: 35px;
   height: 35px;
   margin-left: 25px;
-  cursor: pointer;
+  cursor: ${props => props.hidden ? 'normal' : 'pointer'};
   display: ${props => props.changed ? 'none' : 'block'};
 
   @media(max-width: 600px) {
@@ -143,8 +149,8 @@ export const Submit = styled.button<ChangeProps>`
   height: 35px;
 `
 
-export const Flex = styled.div`
-  display: flex;
+export const Flex = styled.div<HiddenProps>`
+  display: ${props => props.hidden ? 'flex' : 'none'};
   justify-content: center;
   width: 100%;
   margin-top: 30px;

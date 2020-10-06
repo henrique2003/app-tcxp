@@ -26,11 +26,13 @@ const connector = connect(mapState, mapDispatch)
 
 type PropsFromRedux = ConnectedProps<typeof connector>
 
-type Props = PropsFromRedux
+type Props = PropsFromRedux & {
+  display: boolean
+}
 
-const DangerZone: React.FC<Props> = ({ changeDeleteAccountModal }) => {
+const DangerZone: React.FC<Props> = ({ changeDeleteAccountModal, display }) => {
   return (
-    <StyledDangerZone>
+    <StyledDangerZone hidden={display} >
       <Container>
         <Title>Área de risco</Title>
         <Form>

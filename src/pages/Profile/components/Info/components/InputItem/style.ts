@@ -29,6 +29,10 @@ export const TitleItem = styled.p`
 export const AnswerRow = styled.div`
   margin-top: 10px;
   display: flex;
+
+  .email {
+    max-width: 35vw;
+  }
 `
 
 export const Answer = styled.p`
@@ -50,6 +54,7 @@ export const Input = styled.input<InputProps>`
   background: transparent;
   font-size: 20px;
   width: ${props => props.length ? 1 * props.length : '15'}vw;
+  max-width: 15vw;
   color: black;
   padding-bottom: 3px;
 

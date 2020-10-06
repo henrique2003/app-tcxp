@@ -18,9 +18,11 @@ export const Title = styled.h3`
 
 interface EditProps {
   changeEdit: boolean
+  hidden: boolean
 }
 
 export const Edit = styled.button<EditProps>`
+  display: ${props => props.hidden ? 'none' : 'block'};
   margin-top: 3px;
   margin-left: 25px;
   border: none;
