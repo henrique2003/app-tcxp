@@ -90,7 +90,7 @@ const Profile: React.FC<Props> = ({ history, changeLogged, match }) => {
     avaliate: [],
     totalAvaliate: 0
   })
-  // 5f7cab3d53ac27310cf9aef7
+
   useEffect(() => {
     window.scrollTo(0, 0)
     setToken()
