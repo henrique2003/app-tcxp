@@ -20,6 +20,12 @@ export const DivSearch = styled.div<DivSearchProps>`
     font-size: 30px;
     margin-bottom: -5px;
     margin-left: -50px;
+    cursor: pointer;
+    transition: color .3s ease;
+
+    &:hover {
+      color: #808080c9;
+    }
   }
 
   @media(max-width: 700px) {
@@ -135,6 +141,7 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-top: 40px;
+  padding-bottom: 70px;
 
   @media(max-width: 970px) {
     grid-template-columns: repeat(2, 1fr);

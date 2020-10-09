@@ -11,7 +11,7 @@ const ShortInfo: React.FC<Props> = ({ evaluation }) => {
       <Flex>
         <DivContent>
           <Content>Avaliação</Content>
-          <Content>{evaluation}</Content>
+          <Content>{evaluation ?? 0}</Content>
         </DivContent>
         <DivContent>
           <Content>Viagens</Content>
