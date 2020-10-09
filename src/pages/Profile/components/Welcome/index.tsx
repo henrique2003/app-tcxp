@@ -42,6 +42,7 @@ const connector = connect(mapState, mapDispatch)
 type PropsFromRedux = ConnectedProps<typeof connector>
 
 type Props = PropsFromRedux & {
+  _id: string
   display: boolean
   name: string
   imageProfile?: string
@@ -49,7 +50,7 @@ type Props = PropsFromRedux & {
   onSubmitImage: (image: File) => Promise<void>
 }
 
-const Welcome: React.FC<Props> = ({ changeInviteGroupModal, inviteGroup, display, name, onSubmitName, onSubmitImage, imageProfile }) => {
+const Welcome: React.FC<Props> = ({ changeInviteGroupModal, inviteGroup, display, name, onSubmitName, onSubmitImage, imageProfile, _id }) => {
   const [Change, setChange] = useState<boolean>(false)
   const [Input, setInput] = useState<string>('')
   const [Image, setImage] = useState<string>('')
@@ -94,8 +95,8 @@ const Welcome: React.FC<Props> = ({ changeInviteGroupModal, inviteGroup, display
         ><FaCheck/></Submit>
       </DivName>
       <Flex hidden={display}>
-        <Link to="/dashboard/denunciar/1234">Denunciar</Link>
-        <Link to="/dashboard/avaliacao/1234">Avaliar</Link>
+        <Link to={`/dashboard/denunciar/${_id}`}>Denunciar</Link>
+        <Link to={`/dashboard/avaliacao/${_id}`}>Avaliar</Link>
         <Invite type="button" onClick={() => changeInviteGroupModal(!inviteGroup)}>Convidar</Invite>
       </Flex>
     </StyledWelcome>

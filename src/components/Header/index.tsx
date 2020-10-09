@@ -4,23 +4,34 @@ import { NavLink } from 'react-router-dom'
 import { IoMdClose } from 'react-icons/io'
 import { NavbarArrow } from '../../assets'
 import { StyledHeader } from './style'
-import { changeNavbar, changeModal } from '../../store/actions'
-import { StateDefault, Register, Login } from '../../store/actions/modal/types'
+import { changeNavbar, changeModal, changeLogged } from '../../store/actions'
+import { StateDefault as StateDefaultModal, Register, Login } from '../../store/actions/modal/types'
+import { StateDefault as StateDefaultIsLogged } from '../../store/actions/isLogged/types'
 import { Dispatch } from 'redux'
+import { setToken } from '../../utils'
+import { toast } from 'react-toastify'
 
 type Props = PropsFromRedux
 
-const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal, isLogged }) => {
+const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal, isLogged, changeLogged }) => {
   const [DropDown, setDropDown] = useState<boolean>(false)
 
-  const payloadModalRegister: StateDefault = {
+  const payloadModalRegister: StateDefaultModal = {
     open: !modal.open,
     component: 'Register'
   }
 
-  const payloadModalLogin: StateDefault = {
+  const payloadModalLogin: StateDefaultModal = {
     open: !modal.open,
     component: 'Login'
+  }
+
+  // Logout
+  function logout (): void {
+    changeLogged(false)
+    localStorage.clear()
+    toast.success('Saiu com sucesso')
+    setToken()
   }
 
   // Navbar web no logged
@@ -50,7 +61,7 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal, isL
           <img src={NavbarArrow} alt="More"/>
           <ul>
             <li><NavLink to="/dashboard/solicitacoes">Solicitações</NavLink></li>
-            <li><NavLink to="/duvidas">Sair</NavLink></li>
+            <li onClick={logout}><NavLink to="/">Sair</NavLink></li>
           </ul>
         </li>
       </>
@@ -80,7 +91,7 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal, isL
         <li><NavLink to="/dashboard/chat">Chat</NavLink></li>
         <li><NavLink to="/dashboard/perfil">Perfil</NavLink></li>
         <li><NavLink to="/dashboard/solicitacoes">Solicitações</NavLink></li>
-        <li><NavLink to="/duvidas">Sair</NavLink></li>
+        <li onClick={logout}><NavLink to="/">Sair</NavLink></li>
       </>
     )
   }
@@ -125,7 +136,8 @@ interface RootState {
 
 interface DispatchProps {
   changeNavbar: (payload: boolean) => void
-  changeModal: (payload: StateDefault) => void
+  changeModal: (payload: StateDefaultModal) => void
+  changeLogged: (payload: StateDefaultIsLogged) => void
 }
 
 const mapState = (state: RootState): RootState => ({
@@ -136,7 +148,8 @@ const mapState = (state: RootState): RootState => ({
 
 const mapDispatch = (dispatch: Dispatch): DispatchProps => ({
   changeNavbar: (payload) => dispatch(changeNavbar(payload)),
-  changeModal: (payload) => dispatch(changeModal(payload))
+  changeModal: (payload) => dispatch(changeModal(payload)),
+  changeLogged: (payload) => dispatch(changeLogged(payload))
 })
 
 const connector = connect(mapState, mapDispatch)

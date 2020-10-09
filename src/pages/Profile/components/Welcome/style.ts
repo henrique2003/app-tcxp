@@ -135,6 +135,7 @@ export const PencilIcon = styled.img<ChangeProps>`
   margin-left: 25px;
   cursor: ${props => props.hidden ? 'normal' : 'pointer'};
   display: ${props => props.changed ? 'none' : 'block'};
+  display: ${props => props.hidden && 'none'};
 
   @media(max-width: 600px) {
     width: 30px;

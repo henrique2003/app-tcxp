@@ -90,13 +90,19 @@ const Profile: React.FC<Props> = ({ history, changeLogged, match }) => {
     avaliate: [],
     totalAvaliate: 0
   })
-
+  // 5f7cab3d53ac27310cf9aef7
   useEffect(() => {
     window.scrollTo(0, 0)
     setToken()
+    const id: string = match.params.id
     async function load (): Promise<void> {
       try {
-        const res = await api.get('/load/user')
+        var res = null
+        if (id) {
+          res = await api.get(`/user/${id}`)
+        } else {
+          res = await api.get('/load/user')
+        }
 
         setUser(res.data.body)
 
@@ -109,7 +115,7 @@ const Profile: React.FC<Props> = ({ history, changeLogged, match }) => {
     load()
     setDisplay(false)
 
-    if (match.params.id) {
+    if (id) {
       setDisplay(true)
     }
   }, [changeLogged, history, match.params.id])
@@ -151,6 +157,7 @@ const Profile: React.FC<Props> = ({ history, changeLogged, match }) => {
   return (
     <>
       <Welcome
+        _id={User._id}
         display={Display}
         name={User.name}
         imageProfile={User.imageProfile && User.imageProfile.url}
