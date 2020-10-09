@@ -86,8 +86,11 @@ const Explore: React.FC<Props> = ({ history, changeLogged }) => {
     loadPeoples()
   }, [changeLogged, history])
 
-  async function search (data: string): Promise<void> {
+  async function search (data: string): Promise<void | null> {
     try {
+      if (!data) {
+        return null
+      }
       const res = await api.post('/user/search', { search: data })
 
       setPeoplesFiltred(res.data.body)

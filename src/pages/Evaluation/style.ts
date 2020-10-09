@@ -4,6 +4,19 @@ export const StyledEvaluation = styled.div`
   padding: 50px 0;
   background: #fafafa;
   width: 100%;
+  
+  .not_found {
+    font-size: 19px;
+    color: #808080;
+    width: 100%;
+    margin: 0 20px;
+    margin-top: 80px;
+    text-align: center;
+
+    @media(max-width: 600px) {
+      margin-top: 60px;
+    }
+  }
 `
 
 export const Title = styled.h2`
