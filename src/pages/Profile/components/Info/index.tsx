@@ -1,5 +1,6 @@
 import React, { useState, useEffect, SyntheticEvent } from 'react'
 import { FaCheck } from 'react-icons/fa'
+import { titleize } from '../../../../utils'
 import { Pencil as ImagePencil } from '../../../../assets'
 import { Container } from '../../../../styles'
 import {
@@ -90,7 +91,7 @@ const Info: React.FC<Props> = ({ display, user, onSubmitInfo }) => {
       twitter,
       facebook,
       description,
-      interestings: interestingsUser?.join(', ')
+      interestings: interestingsUser?.map(interesting => titleize(interesting ?? '')).join(', ')
     })
   }, [email, country, state, celphone, instagram, twitter, facebook, description, interestingsUser])
 

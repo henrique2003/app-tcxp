@@ -1,4 +1,4 @@
-import React, { useEffect, useState, SyntheticEvent } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
 import { BgExplore, PictureProfile } from '../../assets'
 import { Container } from '../../styles'
