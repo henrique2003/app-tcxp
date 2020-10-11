@@ -6,12 +6,13 @@ interface Props {
   role: string
   lastMessage: string
   image: string
+  onClick: () => void
 }
 
-const GroupItem: React.FC<Props> = ({ name, role, lastMessage, image }) => {
+const GroupItem: React.FC<Props> = ({ name, role, lastMessage, image, onClick }) => {
   return (
     <>
-      <StyledMemberItem>
+      <StyledMemberItem onClick={() => onClick()}>
         <Image url={image}></Image>
         <div>
           <Name>{name}</Name>

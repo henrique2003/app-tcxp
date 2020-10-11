@@ -4,7 +4,7 @@ import { StyledYourMessage, BoxMessage, PersonMessage, Message, Time } from './s
 interface Props {
   messagePerson: string
   message: string
-  time: string
+  time?: string
 }
 
 const YourMessage: React.FC<Props> = ({ message, messagePerson, time }) => {
@@ -14,7 +14,7 @@ const YourMessage: React.FC<Props> = ({ message, messagePerson, time }) => {
         <PersonMessage>{messagePerson}</PersonMessage>
         <Message>{message}</Message>
       </BoxMessage>
-      <Time>{time}</Time>
+      {/* <Time>{time}</Time> */}
     </StyledYourMessage>
   )
 }

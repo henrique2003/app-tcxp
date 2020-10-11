@@ -3,7 +3,7 @@ import { StyledMyMessage, BoxMessage, Message, Time } from './style'
 
 interface Props {
   message: string
-  time: string
+  time?: string
 }
 
 const MyMessage: React.FC<Props> = ({ message, time }) => {
@@ -12,7 +12,7 @@ const MyMessage: React.FC<Props> = ({ message, time }) => {
       <BoxMessage length={message.length}>
         <Message>{message}</Message>
       </BoxMessage>
-      <Time>{time}</Time>
+      {/* <Time>{time}</Time> */}
     </StyledMyMessage>
   )
 }
