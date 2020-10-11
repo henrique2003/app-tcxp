@@ -187,7 +187,7 @@ export const MembersGroup = styled.input`
 export const DivMessages = styled.div`
   width: 100%;
   margin-top: 25px;
-  height: 510px;
+  height: 460px;
   overflow-y: scroll;
 `
 

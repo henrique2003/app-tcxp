@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { CgMathPlus } from 'react-icons/cg'
 import { RiMenu5Fill } from 'react-icons/ri'
-import { Link } from 'react-router-dom'
 import { PictureProfile, PictureGroup, Send } from '../../assets'
+import { setToken, editDate } from '../../utils'
 import { GroupItem, YourMessage, MyMessage } from './components'
 import {
   Groups,
@@ -24,24 +24,143 @@ import {
   Padding,
   SendImage
 } from './style'
+import api from '../../services/api'
+import { toast } from 'react-toastify'
+import { withRouter, RouteComponentProps, Link } from 'react-router-dom'
+import { Dispatch } from 'redux'
+import { connect, ConnectedProps } from 'react-redux'
+import { changeLogged } from '../../store/actions'
+import { StateDefault } from '../../store/actions/deleteAccount/types'
+import { User } from '../Profile'
 
-const Chat: React.FC = () => {
+interface RootState {
+  isLogged: boolean
+}
+
+const mapState = (state: RootState): RootState => ({
+  isLogged: state.isLogged
+})
+
+interface DispatchProps {
+  changeLogged: (payload: StateDefault) => void
+}
+
+const mapDispatch = (dispatch: Dispatch): DispatchProps => ({
+  changeLogged: (payload) => dispatch(changeLogged(payload))
+})
+
+const connector = connect(mapState, mapDispatch)
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+type Props = PropsFromRedux & RouteComponentProps<any>
+
+interface IGroupsData {
+  _id: string
+  title: string
+  description: string
+  image: {
+    name: string
+    size: number
+    key: string
+    url: string
+  }
+  messages?: Messages[]
+  creator?: User[] | string
+  administrators?: User[] | string
+  members?: User[] | string
+}
+
+interface Messages {
+  _id: string
+  user: User | string
+  content: string
+  inviteDate: string
+}
+
+interface IGroups {
+  creatorGroup: IGroupsData[]
+  adminGroup: IGroupsData[]
+  memberGroup: IGroupsData[]
+}
+
+const Chat: React.FC<Props> = ({ changeLogged, history }) => {
+  const [GroupData, setGroupData] = useState<IGroups>()
+  const [SideOpen, setSideOpen] = useState<boolean>(false)
+  const [GroupsLength, setGroupsLength] = useState<number>(0)
+
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [])
+    setToken()
 
-  const [SideOpen, setSideOpen] = useState<boolean>(false)
+    async function load (): Promise<void> {
+      try {
+        await api.get('/load/user')
+
+        changeLogged(true)
+      } catch (error) {
+        toast.error('Acesso negado')
+        history.push('/')
+      }
+    }
+    load()
+
+    async function loadGroups (): Promise<void> {
+      try {
+        const res = await api.get('/groups/mine')
+
+        setGroupData(res.data.body)
+
+        let groupLength = 0
+        if (res.data.body?.creatorGroup) {
+          groupLength = res.data.body?.creatorGroup.length
+        }
+        if (res.data.body?.adminGroup) {
+          groupLength += res.data.body?.adminGroup.length as number
+        }
+        if (res.data.body?.memberGroup) {
+          groupLength += res.data.body?.memberGroup.length as number
+        }
+
+        setGroupsLength(groupLength)
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+    loadGroups()
+  }, [])
 
   return (
     <StyledChat>
       <DivGroup open={SideOpen}>
-        <Groups length={1}>
-          <GroupItem
-            name="Cleyton"
-            role="Administrador"
-            lastMessage="17/02/2020"
-            image={PictureProfile}
-          />
+        <Groups length={GroupsLength}>
+          {GroupData?.creatorGroup.map(group => (
+            <GroupItem
+              key={group._id}
+              name={group.title}
+              role="Administrador"
+              lastMessage={group.messages && group.messages[group.messages.length - 1] ? editDate(group.messages[group.messages.length - 1].inviteDate) : ''}
+              image={PictureProfile}
+            />
+          ))}
+          {GroupData?.adminGroup.map(group => (
+            <GroupItem
+              key={group._id}
+              name={group.title}
+              role="Administrador"
+              lastMessage={group.messages && group.messages[group.messages.length - 1] ? editDate(group.messages[group.messages.length - 1].inviteDate) : ''}
+              image={PictureProfile}
+            />
+          ))}
+          {GroupData?.memberGroup.map(group => (
+            <GroupItem
+              key={group._id}
+              name={group.title}
+              role="Administrador"
+              lastMessage={group.messages && group.messages[group.messages.length - 1] ? editDate(group.messages[group.messages.length - 1].inviteDate) : ''}
+              image={PictureProfile}
+            />
+          ))}
         </Groups>
         <MoreGroup>
           <Link to="/dashboard/chat/criar">
@@ -58,8 +177,8 @@ const Chat: React.FC = () => {
                 <Flex>
                   <ImageProfileGroup url={PictureGroup}></ImageProfileGroup>
                   <DivContent>
-                    <TitleGroup type="text" value="Viagem de Aniversário" />
-                    <MembersGroup type="text" value="Você, Bianca de Oliveira, Enzo Fernandes" />
+                    <TitleGroup type="text" value="Viagem de Aniversário" onChange={() => false}/>
+                    <MembersGroup type="text" value="Você, Bianca de Oliveira, Enzo Fernandes" onChange={() => false}/>
                   </DivContent>
                 </Flex>
               </DivInfo>
@@ -85,4 +204,4 @@ const Chat: React.FC = () => {
   )
 }
 
-export default Chat
+export default withRouter(connector(Chat))
