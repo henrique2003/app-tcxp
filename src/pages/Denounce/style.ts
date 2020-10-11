@@ -92,6 +92,7 @@ export const Label = styled.label`
 `
 
 export const TextArea = styled.textarea`
+  margin-top: 15px;
   resize: none;
   font-size: 17px;
   font-weight: bold;
