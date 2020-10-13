@@ -115,6 +115,8 @@ const Chat: React.FC<Props> = ({ changeLogged, history }) => {
         const res = await api.get('/load/user')
 
         setUser(res.data.body)
+        await api.get('/load/user')
+
         changeLogged(true)
       } catch (error) {
         toast.error('Acesso negado')
