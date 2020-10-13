@@ -41,6 +41,7 @@ export interface User {
   _id: string
   name: string
   email: string
+  totalAvaliate: number
   description?: string
   state?: string
   country?: string
@@ -59,7 +60,6 @@ export interface User {
     key: string
     url: string
   }
-  totalAvaliate: number
 }
 
 export interface Avaliate {

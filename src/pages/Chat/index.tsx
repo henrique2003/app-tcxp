@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ReactElement, FunctionComponent } from 'react'
 import { CgMathPlus } from 'react-icons/cg'
 import { RiMenu5Fill } from 'react-icons/ri'
-import { PictureProfile, PictureGroup, Send } from '../../assets'
+import { PictureGroup, Send } from '../../assets'
 import { setToken, editDate } from '../../utils'
 import { GroupItem, YourMessage, MyMessage } from './components'
 import {
@@ -59,21 +59,21 @@ interface IGroupsData {
   _id: string
   title: string
   description: string
-  image: {
+  image?: {
     name: string
     size: number
     key: string
     url: string
   }
+  creator: User
   messages?: Messages[]
-  creator?: User[] | string
-  administrators?: User[] | string
-  members?: User[] | string
+  administrators?: User[]
+  members?: User[]
 }
 
 interface Messages {
   _id: string
-  user: User | string
+  user: User
   content: string
   inviteDate: string
 }
@@ -85,9 +85,26 @@ interface IGroups {
 }
 
 const Chat: React.FC<Props> = ({ changeLogged, history }) => {
+  const [User, setUser] = useState<User>()
   const [GroupData, setGroupData] = useState<IGroups>()
   const [SideOpen, setSideOpen] = useState<boolean>(false)
   const [GroupsLength, setGroupsLength] = useState<number>(0)
+  const [InitialDisplay, setInitialDisplay] = useState<boolean>(true)
+  const [Message, setMessage] = useState<string>('')
+  const [ActiveGroup, setActiveGroup] = useState<IGroupsData>({
+    _id: '',
+    title: '',
+    description: '',
+    creator: {
+      _id: '',
+      name: '',
+      email: '',
+      totalAvaliate: 0
+    },
+    administrators: [],
+    members: [],
+    messages: []
+  })
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -95,6 +112,9 @@ const Chat: React.FC<Props> = ({ changeLogged, history }) => {
 
     async function load (): Promise<void> {
       try {
+        const res = await api.get('/load/user')
+
+        setUser(res.data.body)
         await api.get('/load/user')
 
         changeLogged(true)
@@ -128,7 +148,45 @@ const Chat: React.FC<Props> = ({ changeLogged, history }) => {
       }
     }
     loadGroups()
-  }, [])
+  }, [changeLogged, history])
+
+  async function showGroup (id: string): Promise<void> {
+    try {
+      const res = await api.get(`/group/${id}`)
+
+      setActiveGroup(res.data.body)
+      setInitialDisplay(false)
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  function showMembers (creator: string, administrator: User[], members: User[]): string {
+    const admin = administrator.join(', ')
+    const member = members.join(', ')
+
+    return creator + admin + member
+  }
+
+  async function sendMessage (): Promise<void | null> {
+    try {
+      if (!Message) {
+        toast.error('Campo em branco')
+        return null
+      }
+
+      const res = await api.put(`/group/message/new/${ActiveGroup._id}`, { message: Message })
+
+      setMessage('')
+      setActiveGroup({ ...ActiveGroup, messages: res.data.body.messages })
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  useEffect(() => {
+    console.log(ActiveGroup)
+  }, [ActiveGroup])
 
   return (
     <StyledChat>
@@ -140,7 +198,8 @@ const Chat: React.FC<Props> = ({ changeLogged, history }) => {
               name={group.title}
               role="Administrador"
               lastMessage={group.messages && group.messages[group.messages.length - 1] ? editDate(group.messages[group.messages.length - 1].inviteDate) : ''}
-              image={PictureProfile}
+              image={group.image?.url ?? PictureGroup}
+              onClick={async () => await showGroup(group._id)}
             />
           ))}
           {GroupData?.adminGroup.map(group => (
@@ -149,7 +208,8 @@ const Chat: React.FC<Props> = ({ changeLogged, history }) => {
               name={group.title}
               role="Administrador"
               lastMessage={group.messages && group.messages[group.messages.length - 1] ? editDate(group.messages[group.messages.length - 1].inviteDate) : ''}
-              image={PictureProfile}
+              image={group.image?.url ?? PictureGroup}
+              onClick={async () => await showGroup(group._id)}
             />
           ))}
           {GroupData?.memberGroup.map(group => (
@@ -158,7 +218,8 @@ const Chat: React.FC<Props> = ({ changeLogged, history }) => {
               name={group.title}
               role="Administrador"
               lastMessage={group.messages && group.messages[group.messages.length - 1] ? editDate(group.messages[group.messages.length - 1].inviteDate) : ''}
-              image={PictureProfile}
+              image={group.image?.url ?? PictureGroup}
+              onClick={async () => await showGroup(group._id)}
             />
           ))}
         </Groups>
@@ -171,32 +232,49 @@ const Chat: React.FC<Props> = ({ changeLogged, history }) => {
       <Messages>
         <RiMenu5Fill color="#FF6D00" onClick={() => setSideOpen(!SideOpen)}/>
         <Padding>
-          <HeaderGroup>
-            <Link to={`/dashboard/chat/editar/${'1232'}`}>
+          <HeaderGroup ifDisplay={InitialDisplay}>
+            <Link to={`/dashboard/chat/editar/${ActiveGroup._id}`}>
               <DivInfo>
                 <Flex>
-                  <ImageProfileGroup url={PictureGroup}></ImageProfileGroup>
+                  <ImageProfileGroup url={ActiveGroup.image?.url ?? PictureGroup}></ImageProfileGroup>
                   <DivContent>
-                    <TitleGroup type="text" value="Viagem de Aniversário" onChange={() => false}/>
-                    <MembersGroup type="text" value="Você, Bianca de Oliveira, Enzo Fernandes" onChange={() => false}/>
+                    <TitleGroup type="text" value={ActiveGroup.title} onChange={() => false}/>
+                    <MembersGroup
+                      type="text"
+                      value={showMembers(ActiveGroup.creator.name, ActiveGroup.administrators ?? [], ActiveGroup.members ?? [])}
+                      onChange={() => false}/>
                   </DivContent>
                 </Flex>
               </DivInfo>
             </Link>
           </HeaderGroup>
-          <DivMessages>
-            <YourMessage message="Podemos ir em junho ?" messagePerson="Bianca de Oliveira" time="14:00"/>
-            <MyMessage message="Podemos ir" time="12:00"/>
-            <YourMessage message="Podemos ir junho para não nos perdermos no meio de todo mundo la na festa que tem sezta feira ?" messagePerson="Bianca de Oliveira" time="14:01"/>
-            <YourMessage message="Podemos ir junho para não nos perdermos no meio de todo mundo la na festa que tem sezta feira ?" messagePerson="Bianca de Oliveira" time="14:01"/>
-            <MyMessage message="Podemos ir" time="12:00"/>
+          <DivMessages ifDisplay={InitialDisplay}>
+            {ActiveGroup.messages?.map(message => {
+              let id = ''
+
+              if (typeof message.user === 'string') {
+                id = message.user
+              } else {
+                id = message.user._id
+              }
+
+              if (id === User?._id) {
+                return (
+                  <MyMessage key={message._id} message={message.content} time="12:00"/>
+                )
+              } else {
+                return (
+                  <YourMessage key={message._id} message={message.content} messagePerson={message.user.name} time="14:00"/>
+                )
+              }
+            })}
           </DivMessages>
         </Padding>
-        <DivInputSendMessage>
+        <DivInputSendMessage ifDisplay={InitialDisplay}>
           <DivSendMessage>
-            <InputSendMessage placeholder="Digite aqui...">
+            <InputSendMessage placeholder="Digite aqui..." onChange={e => setMessage(e.target.value)} value={Message}>
             </InputSendMessage>
-            <SendImage src={Send} alt="Send"/>
+            <SendImage src={Send} alt="Send" onClick={async () => await sendMessage()}/>
           </DivSendMessage>
         </DivInputSendMessage>
       </Messages>

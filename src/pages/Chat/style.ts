@@ -12,7 +12,7 @@ interface DivGroupProps {
 
 export const DivGroup = styled.div<DivGroupProps>`
   width: 600px;
-  background: #fafafa;
+  background: #eaeaea;
   transition: all .3s ease;
 
   @media(max-width: 810px) {
@@ -31,7 +31,7 @@ interface GroupsProps {
 }
 
 export const Groups = styled.div<GroupsProps>`
-  background: #fafafa;
+  background: #eaeaea;
   height: 75vh;
   width: 100%;
   ${props => props.length > 6 && 'overflow-y: scroll;'}
@@ -93,11 +93,16 @@ export const Messages = styled.div`
   }
 `
 
-export const HeaderGroup = styled.header`
+interface ActiveGroup {
+  ifDisplay: boolean
+}
+
+export const HeaderGroup = styled.header<ActiveGroup>`
   background: white;
   width: 100%;
   box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.10);
   padding: 10px 20px;
+  display: ${props => props.ifDisplay ? 'none' : 'block'};
 `
 
 export const DivInfo = styled.div`
@@ -184,20 +189,22 @@ export const MembersGroup = styled.input`
   }
 `
 
-export const DivMessages = styled.div`
+export const DivMessages = styled.div<ActiveGroup>`
   width: 100%;
   margin-top: 25px;
   height: 460px;
   overflow-y: scroll;
+  display: ${props => props.ifDisplay ? 'none' : 'block'};
 `
 
-export const DivInputSendMessage = styled.div`
+export const DivInputSendMessage = styled.div<ActiveGroup>`
   width: 70%;
   background: white;
   padding: 20px 0;
   position: fixed;
   bottom: 0;
   z-index: 40;
+  display: ${props => props.ifDisplay ? 'none' : 'block'};
 
   @media(max-width: 1030px) {
     width: 65%;
