@@ -55,7 +55,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 
 type Props = PropsFromRedux & RouteComponentProps<any>
 
-interface IGroupsData {
+export interface IGroupsData {
   _id: string
   title: string
   description: string

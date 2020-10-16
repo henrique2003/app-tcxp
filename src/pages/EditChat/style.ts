@@ -235,7 +235,7 @@ export const DivOutGroup = styled.div`
   margin: 50px auto;
   margin-top: 40px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
 `
 
 export const ButtonOutGroup = styled.button`
