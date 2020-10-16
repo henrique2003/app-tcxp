@@ -36,6 +36,10 @@ export const DivTitle = styled.div`
   @media(max-width: 600px) {
     margin-top: 20px;
   }
+
+  @media(max-width: 500px) {
+    flex-direction: column;
+  }
 `
 
 interface ChangeProps {
@@ -61,6 +65,12 @@ export const Title = styled.input<ChangeProps>`
   @media(max-width: 600px) {
     font-size: 31px;
     margin-left: 0;
+    text-align: center;
+  }
+
+  @media(max-width: 500px) {
+    margin: 0 auto;
+    margin-top: 10px;
   }
 `
 
@@ -95,6 +105,10 @@ export const Edit = styled.button<EditProps>`
     svg {
       font-size: 20px;
     }
+  }
+
+  @media(max-width: 500px) {
+    margin: 0 auto;
   }
 `
 

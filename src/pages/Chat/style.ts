@@ -22,7 +22,15 @@ export const DivGroup = styled.div<DivGroupProps>`
     overflow: hidden;
     height: 90.4vh;
     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.10);
-    z-index: 50;
+    /* z-index: 40; */
+
+    @media(max-width: 810px) {
+      max-width: ${props => props.open ? '0px' : '350px'};
+    }
+    
+    @media(max-width: 450px) {
+      max-width: ${props => props.open ? '0px' : '100%'};
+    }
   }
 `
 
