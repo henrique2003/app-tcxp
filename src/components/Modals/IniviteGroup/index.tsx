@@ -55,7 +55,7 @@ const InviteGroup: React.FC<Props> = ({ changeInviteGroupModal, inviteGroup: ope
       }
     }
     loadMyGroups()
-  }, [])
+  }, [open])
 
   function closeModal (): void {
     setShowModal('')

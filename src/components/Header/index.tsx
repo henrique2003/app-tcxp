@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect, ConnectedProps } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, RouteComponentProps, withRouter } from 'react-router-dom'
 import { IoMdClose } from 'react-icons/io'
 import { NavbarArrow } from '../../assets'
 import { StyledHeader } from './style'
@@ -11,9 +11,9 @@ import { Dispatch } from 'redux'
 import { setToken } from '../../utils'
 import { toast } from 'react-toastify'
 
-type Props = PropsFromRedux
+type Props = PropsFromRedux & RouteComponentProps<any>
 
-const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal, isLogged, changeLogged }) => {
+const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal, isLogged, changeLogged, history }) => {
   const [DropDown, setDropDown] = useState<boolean>(false)
 
   const payloadModalRegister: StateDefaultModal = {
@@ -32,6 +32,7 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal, isL
     localStorage.clear()
     toast.success('Saiu com sucesso')
     setToken()
+    history.push('/')
   }
 
   // Navbar web no logged
@@ -159,4 +160,4 @@ const connector = connect(mapState, mapDispatch)
 
 type PropsFromRedux = ConnectedProps<typeof connector>
 
-export default connector(Header)
+export default withRouter(connector(Header))
