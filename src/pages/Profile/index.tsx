@@ -99,6 +99,7 @@ const Profile: React.FC<Props> = ({ history, changeLogged, match }) => {
       try {
         var res = null
         if (id) {
+          localStorage.setItem('id', id)
           res = await api.get(`/user/${id}`)
         } else {
           res = await api.get('/load/user')

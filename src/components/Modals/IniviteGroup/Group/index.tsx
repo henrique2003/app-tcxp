@@ -9,12 +9,14 @@ import {
 } from './style'
 
 interface Props {
+  id: string
   image: string
   title: string
   description: string
+  invite: (group: string) => Promise<void>
 }
 
-const Group: React.FC<Props> = ({ image, title, description }) => {
+const Group: React.FC<Props> = ({ image, title, description, id, invite }) => {
   const handleDescription = (description: string): string => {
     let shortDescription = ''
     if (description.length > 20) {
@@ -36,7 +38,7 @@ const Group: React.FC<Props> = ({ image, title, description }) => {
         <TitleGroup>{title}</TitleGroup>
         <DescriptionGroup>{handleDescription(description)}</DescriptionGroup>
       </DivInfo>
-      <Button type="button">Convidar</Button>
+      <Button type="button" onClick={async () => await invite(id)}>Convidar</Button>
     </StyledGroup>
   )
 }
