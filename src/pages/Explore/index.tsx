@@ -48,6 +48,12 @@ interface Peoples {
 }
 
 const Explore: React.FC<Props> = ({ history, changeLogged }) => {
+  const [UserData, setUserData] = useState<User>({
+    _id: '',
+    name: '',
+    email: '',
+    totalAvaliate: 0
+  })
   const [Peoples, setPeoples] = useState<Peoples>({
     data: [],
     pagination: {
@@ -66,8 +72,10 @@ const Explore: React.FC<Props> = ({ history, changeLogged }) => {
     setToken()
     async function load (): Promise<void> {
       try {
-        await api.get('/load/user')
+        const res = await api.get('/load/user')
+
         changeLogged(true)
+        setUserData(res.data.body)
       } catch (error) {
         toast.error('Acesso negado')
         history.push('/')
@@ -122,9 +130,13 @@ const Explore: React.FC<Props> = ({ history, changeLogged }) => {
           {Peoples.data.length === 0 && PeoplesFiltred.length === 0 ? <p>Nenhuma pessoa encontrada</p>
             : PeoplesFiltred.length !== 0 ? PeoplesFiltred.map(people => (
               <PersonItem key={people._id} image={people.imageProfile?.url ?? PictureProfile} _id={people._id}/>
-            )) : Peoples.data.map(people => (
-              <PersonItem key={people._id} image={people.imageProfile?.url ?? PictureProfile} _id={people._id}/>
-            ))}
+            )) : Peoples.data.map(people => {
+              if (UserData._id.toString() !== people._id.toString()) {
+                return (
+                  <PersonItem key={people._id} image={people.imageProfile?.url ?? PictureProfile} _id={people._id}/>
+                )
+              }
+            })}
         </Grid>
       </Container>
     </StyledExplore>

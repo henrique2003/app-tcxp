@@ -162,10 +162,28 @@ const Chat: React.FC<Props> = ({ changeLogged, history }) => {
   }
 
   function showMembers (creator: string, administrator: User[], members: User[]): string {
-    const admin = administrator.join(', ')
-    const member = members.join(', ')
+    const adminName: string[] = administrator.map(admin => {
+      return admin.name
+    })
 
-    return creator + admin + member
+    const memberName: string[] = members.map(member => {
+      return member.name
+    })
+
+    const admin = adminName.join(', ')
+    const member = memberName.join(', ')
+
+    let showAdmin = ''
+    if (admin) {
+      showAdmin = `, ${admin}`
+    }
+
+    let showMember = ''
+    if (member) {
+      showMember = `, ${member}`
+    }
+
+    return creator + showAdmin + showMember
   }
 
   async function sendMessage (): Promise<void | null> {

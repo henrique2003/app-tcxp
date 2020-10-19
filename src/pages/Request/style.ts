@@ -3,6 +3,14 @@ import styled from 'styled-components'
 export const StyledRequest = styled.div`
   border-top: 1px solid rgba(0,0,0,0.2);
   padding: 30px 0;
+  
+  .no_requests {
+    font-size: 20px;
+    text-align: center;
+    color: rgba(0,0,0,0.8);
+    margin: 0 auto;
+    margin-top: 70px;
+  }
 `
 
 export const Title = styled.h3`

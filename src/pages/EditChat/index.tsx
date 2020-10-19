@@ -125,9 +125,11 @@ const EditChat: React.FC<Props> = ({ changeLogged, history, match }) => {
 
     if (Group.creator._id === User?._id) {
       return setRole(1)
-    } else if (admin) {
+    } else if (admin?.length !== 0) {
+      console.log('2')
       return setRole(2)
     } else {
+      console.log('3')
       return setRole(3)
     }
   }, [Group.administrators, Group.creator, User])
@@ -187,6 +189,10 @@ const EditChat: React.FC<Props> = ({ changeLogged, history, match }) => {
     }
   }
 
+  useEffect(() => {
+    console.log(Role)
+  }, [Role])
+
   return (
     <>
       <Trace></Trace>
@@ -241,7 +247,7 @@ const EditChat: React.FC<Props> = ({ changeLogged, history, match }) => {
             {Group.creator && <MemberItem
               user={Group.creator}
               role={1}
-              showMore={Role === 1 ? 'no' : Role === 2 ? 'yes' : 'no'} />}
+              showMore='no' />}
             {Group.administrators?.length !== 0 &&
             Group.administrators &&
             Group.administrators.map(admin => (
@@ -249,7 +255,7 @@ const EditChat: React.FC<Props> = ({ changeLogged, history, match }) => {
                 key={admin._id}
                 user={admin}
                 role={2}
-                showMore={Role === 2 ? 'no' : Role === 2 ? 'yes' : 'no'} />
+                showMore={Role === 1 || Role === 2 ? 'yes' : 'no'} />
             ))}
             {Group.members?.length !== 0 &&
             Group.members &&
@@ -257,8 +263,8 @@ const EditChat: React.FC<Props> = ({ changeLogged, history, match }) => {
               <MemberItem
                 key={member._id}
                 user={member}
-                role={1}
-                showMore='no'/>
+                role={3}
+                showMore={Role === 1 || Role === 2 ? 'yes' : 'no'}/>
             ))}
           </Members>
         </DivInfo>

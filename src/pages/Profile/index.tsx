@@ -8,6 +8,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import api from '../../services/api'
 import { setToken } from '../../utils'
+import { AcceptRequest } from '../Request/index'
 
 interface RootState {
   isLogged: boolean
@@ -53,7 +54,7 @@ export interface User {
   avaliate?: Avaliate[]
   interestings?: string[]
   inviteRequest?: []
-  acceptRequest?: []
+  acceptRequest?: AcceptRequest[]
   imageProfile?: {
     name: string
     size: number
