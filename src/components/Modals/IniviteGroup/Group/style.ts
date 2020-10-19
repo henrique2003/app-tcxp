@@ -74,6 +74,7 @@ export const Button = styled.button`
   cursor: pointer;
   border: 1px solid white;
   transition: all .3s ease;
+  margin-left: auto;
 
   &:hover {
     color: #FF6D00;

@@ -10,6 +10,8 @@ import { StyledModal, Header, DivGroup } from './style'
 import Group from './Group'
 import api from '../../../services/api'
 import { setToken } from '../../../utils'
+import { IGroups } from '../../../pages/Chat'
+import { toast } from 'react-toastify'
 
 interface RootState {
   inviteGroup: boolean
@@ -33,21 +35,17 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 
 type Props = PropsFromRedux
 
-interface Group {
-  creatorGroup: []
-  adminGroup: []
-}
-
 const InviteGroup: React.FC<Props> = ({ changeInviteGroupModal, inviteGroup: open }) => {
   const [ShowModal, setShowModal] = useState<string>('')
-  const [Groups, setGroups] = useState<Group>({
+  const [GroupsData, setGroups] = useState<IGroups>({
     creatorGroup: [],
-    adminGroup: []
+    adminGroup: [],
+    memberGroup: []
   })
 
   useEffect(() => {
     setToken()
-    async function loadGroups (): Promise<void> {
+    async function loadMyGroups (): Promise<void> {
       try {
         const res = await api.get('/groups/mine')
 
@@ -56,12 +54,24 @@ const InviteGroup: React.FC<Props> = ({ changeInviteGroupModal, inviteGroup: ope
         console.log(error.message)
       }
     }
-    loadGroups()
+    loadMyGroups()
   }, [])
 
   function closeModal (): void {
     setShowModal('')
     changeInviteGroupModal(false)
+  }
+
+  async function invite (group: string): Promise<void> {
+    try {
+      await api.post('/groups/invite/request', { from: localStorage.getItem('id'), group })
+
+      toast.success('Enviado com sucesso')
+    } catch (error) {
+      if (error.response.data.body) {
+        toast.error(error.response.data.body)
+      }
+    }
   }
 
   Modal.setAppElement('#root')
@@ -78,25 +88,26 @@ const InviteGroup: React.FC<Props> = ({ changeInviteGroupModal, inviteGroup: ope
         <Header>
           <CgClose onClick={() => closeModal()} />
         </Header>
-        <DivGroup groupLength={3}>
-          {!Groups ? <p>Você ainda está em um grupo.</p>
-            : <>
-              <Group
-                image={PictureGroup}
-                title="Praia no RJ"
-                description="Esse grupo e para decidirmos tudo da viagem para o Japão."
-              />
-              <Group
-                image={PictureGroup}
-                title="Praia no RJ"
-                description="Esse grupo e para decidirmos tudo da viagem para o Japão."
-              />
-              <Group
-                image={PictureGroup}
-                title="Praia no RJ"
-                description="Esse grupo e para decidirmos tudo da viagem para o Japão."
-              />
-            </>}
+        <DivGroup groupLength={GroupsData.creatorGroup.length + GroupsData.adminGroup.length}>
+          {GroupsData.creatorGroup.length === 0 && GroupsData.adminGroup.length === 0 && <p>Você ainda está em um grupo.</p>}
+          {GroupsData?.creatorGroup.map(group => (
+            <Group
+              key={group._id}
+              id={group._id}
+              title={group.title}
+              image={group.image?.url ?? PictureGroup}
+              description={group.description}
+              invite={invite}
+            />))}
+          {GroupsData?.adminGroup.map(group => (
+            <Group
+              key={group._id}
+              id={group._id}
+              title={group.title}
+              image={group.image?.url ?? PictureGroup}
+              description={group.description}
+              invite={invite}
+            />))}
         </DivGroup>
       </StyledModal>
     </Modal>

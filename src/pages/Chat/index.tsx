@@ -78,7 +78,7 @@ interface Messages {
   inviteDate: string
 }
 
-interface IGroups {
+export interface IGroups {
   creatorGroup: IGroupsData[]
   adminGroup: IGroupsData[]
   memberGroup: IGroupsData[]
