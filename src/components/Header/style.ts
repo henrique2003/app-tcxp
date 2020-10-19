@@ -241,6 +241,7 @@ export const StyledHeader = styled.header<HeaderProps>`
     /* Ipad */
     position: fixed;
     top: 0;
+    z-index: 30;
     width: 400px;
     height: 100vh;
     background: white;

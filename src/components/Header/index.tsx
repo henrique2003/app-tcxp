@@ -86,12 +86,15 @@ const Header: React.FC<Props> = ({ changeNavbar, changeModal, navbar, modal, isL
   function linksNavMobileLogged (): JSX.Element {
     return (
       <>
-        <li><NavLink to="/dashboard">Início</NavLink></li>
-        <li><NavLink to="/dashboard/explorar">Explorar</NavLink></li>
-        <li><NavLink to="/dashboard/chat">Chat</NavLink></li>
-        <li><NavLink to="/dashboard/perfil">Perfil</NavLink></li>
-        <li><NavLink to="/dashboard/solicitacoes">Solicitações</NavLink></li>
-        <li onClick={logout}><NavLink to="/">Sair</NavLink></li>
+        <li onClick={() => changeNavbar(!navbar)}><NavLink to="/dashboard">Início</NavLink></li>
+        <li onClick={() => changeNavbar(!navbar)}><NavLink to="/dashboard/explorar">Explorar</NavLink></li>
+        <li onClick={() => changeNavbar(!navbar)}><NavLink to="/dashboard/chat">Chat</NavLink></li>
+        <li onClick={() => changeNavbar(!navbar)}><NavLink to="/dashboard/perfil">Perfil</NavLink></li>
+        <li onClick={() => changeNavbar(!navbar)}><NavLink to="/dashboard/solicitacoes">Solicitações</NavLink></li>
+        <li onClick={() => {
+          changeNavbar(!navbar)
+          logout()
+        }}><NavLink to="/">Sair</NavLink></li>
       </>
     )
   }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactElement, FunctionComponent } from 'react'
+import React, { useState, useEffect } from 'react'
 import { CgMathPlus } from 'react-icons/cg'
 import { RiMenu5Fill } from 'react-icons/ri'
 import { PictureGroup, Send } from '../../assets'
@@ -184,10 +184,6 @@ const Chat: React.FC<Props> = ({ changeLogged, history }) => {
     }
   }
 
-  useEffect(() => {
-    console.log(ActiveGroup)
-  }, [ActiveGroup])
-
   return (
     <StyledChat>
       <DivGroup open={SideOpen}>
@@ -199,7 +195,10 @@ const Chat: React.FC<Props> = ({ changeLogged, history }) => {
               role="Administrador"
               lastMessage={group.messages && group.messages[group.messages.length - 1] ? editDate(group.messages[group.messages.length - 1].inviteDate) : ''}
               image={group.image?.url ?? PictureGroup}
-              onClick={async () => await showGroup(group._id)}
+              onClick={async () => {
+                setSideOpen(!SideOpen)
+                await showGroup(group._id)
+              }}
             />
           ))}
           {GroupData?.adminGroup.map(group => (
@@ -209,7 +208,10 @@ const Chat: React.FC<Props> = ({ changeLogged, history }) => {
               role="Administrador"
               lastMessage={group.messages && group.messages[group.messages.length - 1] ? editDate(group.messages[group.messages.length - 1].inviteDate) : ''}
               image={group.image?.url ?? PictureGroup}
-              onClick={async () => await showGroup(group._id)}
+              onClick={async () => {
+                setSideOpen(!SideOpen)
+                await showGroup(group._id)
+              }}
             />
           ))}
           {GroupData?.memberGroup.map(group => (
@@ -219,7 +221,10 @@ const Chat: React.FC<Props> = ({ changeLogged, history }) => {
               role="Administrador"
               lastMessage={group.messages && group.messages[group.messages.length - 1] ? editDate(group.messages[group.messages.length - 1].inviteDate) : ''}
               image={group.image?.url ?? PictureGroup}
-              onClick={async () => await showGroup(group._id)}
+              onClick={async () => {
+                setSideOpen(!SideOpen)
+                await showGroup(group._id)
+              }}
             />
           ))}
         </Groups>
