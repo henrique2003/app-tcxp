@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Name, Role, StyledMemberItem, Time } from './style'
+import { Image, Name, Role, StyledMemberItem } from './style'
 
 interface Props {
   name: string
@@ -9,16 +9,15 @@ interface Props {
   onClick: () => void
 }
 
-const GroupItem: React.FC<Props> = ({ name, role, lastMessage, image, onClick }) => {
+const GroupItem: React.FC<Props> = ({ name, role, image, onClick }) => {
   return (
     <>
       <StyledMemberItem onClick={() => onClick()}>
         <Image url={image}></Image>
         <div>
-          <Name>{name}</Name>
+          <Name value={name} disabled={true}/>
           <Role>{role}</Role>
         </div>
-        <Time>{lastMessage}</Time>
       </StyledMemberItem>
     </>
   )

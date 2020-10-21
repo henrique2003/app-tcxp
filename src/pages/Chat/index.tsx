@@ -208,7 +208,7 @@ const Chat: React.FC<Props> = ({ changeLogged, history }) => {
             <GroupItem
               key={group._id}
               name={group.title}
-              role="Administrador"
+              role="Criador"
               lastMessage={group.messages && group.messages[group.messages.length - 1] ? editDate(group.messages[group.messages.length - 1].inviteDate) : ''}
               image={group.image?.url ?? PictureGroup}
               onClick={async () => {
@@ -234,7 +234,7 @@ const Chat: React.FC<Props> = ({ changeLogged, history }) => {
             <GroupItem
               key={group._id}
               name={group.title}
-              role="Administrador"
+              role="Membro"
               lastMessage={group.messages && group.messages[group.messages.length - 1] ? editDate(group.messages[group.messages.length - 1].inviteDate) : ''}
               image={group.image?.url ?? PictureGroup}
               onClick={async () => {
