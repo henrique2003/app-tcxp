@@ -7,12 +7,14 @@ import { User } from '../../Profile'
 
 interface Props {
   user: User
-  role: number
+  role: Number
   showMore: string
+  removeUser: (idParticiopant: string) => Promise<void>
+  moveToAdmin: (moveToAdmin: string) => Promise<void>
 }
 
-const MemberItem: React.FC<Props> = ({ user, role, showMore }) => {
-  const { name, imageProfile } = user
+const MemberItem: React.FC<Props> = ({ user, role, showMore, removeUser, moveToAdmin }) => {
+  const { name, imageProfile, _id } = user
 
   const [Open, setOpen] = useState<boolean>(false)
 
@@ -33,8 +35,8 @@ const MemberItem: React.FC<Props> = ({ user, role, showMore }) => {
       </StyledMemberItem>
       {showMore === 'yes' && (
         <Options open={Open}>
-          <Button type="submit">Tornar Admnistrador</Button>
-          <Button type="submit">Remover do Grupo</Button>
+          <Button type="button" onClick={async () => await moveToAdmin(_id)}>Tornar Admnistrador</Button>
+          <Button type="button" onClick={async () => await removeUser(_id)}>Remover do Grupo</Button>
         </Options>
       )}
     </>

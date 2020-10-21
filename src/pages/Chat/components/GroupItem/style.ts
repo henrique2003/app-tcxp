@@ -32,11 +32,15 @@ export const Image = styled.div<ImageProps>`
   margin-right: 20px;
 `
 
-export const Name = styled.h4`
+export const Name = styled.input`
   color: #FF6D00;
+  border: none;
+  background: transparent;
   font-size: 19px;
   font-weight: bold;
+  max-width: 200px;
   margin-top: 4px;
+  margin-right: 7px;
 `
 
 export const Role = styled.p`

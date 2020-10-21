@@ -112,7 +112,7 @@ const EditChat: React.FC<Props> = ({ changeLogged, history, match }) => {
       }
     }
     loadGroup()
-  }, [changeLogged, history])
+  }, [changeLogged, history, match.params.id])
 
   useEffect(() => {
     const admin = Group.administrators?.map(admin => {
@@ -126,17 +126,14 @@ const EditChat: React.FC<Props> = ({ changeLogged, history, match }) => {
     if (Group.creator._id === User?._id) {
       return setRole(1)
     } else if (admin?.length !== 0) {
-      console.log('2')
       return setRole(2)
     } else {
-      console.log('3')
       return setRole(3)
     }
   }, [Group.administrators, Group.creator, User])
 
   async function updateGroup (): Promise<void> {
     try {
-      console.log(Group)
       const res = await api.put(`/groups/${match.params.id as string}`, Group)
 
       setGroup(res.data.body)
@@ -189,9 +186,35 @@ const EditChat: React.FC<Props> = ({ changeLogged, history, match }) => {
     }
   }
 
-  useEffect(() => {
-    console.log(Role)
-  }, [Role])
+  async function removeUser (idParticipant: string): Promise<void> {
+    try {
+      await api.post(`/groups/participant/remove/${match.params.id as string}`, idParticipant)
+
+      history.push('/dashboard/chat')
+      toast.success('Removido com sucesso')
+    } catch (error) {
+      if (error.response.data.body) {
+        toast.error(error.response.data.body)
+      }
+      toast.error('Erro ao remover particioante')
+    }
+  }
+
+  async function moveToAdmin (idMember: string): Promise<void> {
+    try {
+      await api.put(`/groups/admin/${match.params.id as string}`, { idMember })
+
+      history.push('/dashboard/chat')
+      toast.success('Alterado com sucesso')
+    } catch (error) {
+      console.log(error.message)
+      console.log(error.response.data.body)
+      if (error.response.data.body) {
+        toast.error(error.response.data.body)
+      }
+      toast.error('Erro ao alterar membro')
+    }
+  }
 
   return (
     <>
@@ -247,16 +270,34 @@ const EditChat: React.FC<Props> = ({ changeLogged, history, match }) => {
             {Group.creator && <MemberItem
               user={Group.creator}
               role={1}
+              removeUser={removeUser}
+              moveToAdmin={moveToAdmin}
               showMore='no' />}
             {Group.administrators?.length !== 0 &&
             Group.administrators &&
-            Group.administrators.map(admin => (
-              <MemberItem
-                key={admin._id}
-                user={admin}
-                role={2}
-                showMore={Role === 1 || Role === 2 ? 'yes' : 'no'} />
-            ))}
+            Group.administrators.map(admin => {
+              if (admin._id.toString() === User?._id.toString()) {
+                return (
+                  <MemberItem
+                    key={admin._id}
+                    user={admin}
+                    role={2}
+                    removeUser={removeUser}
+                    moveToAdmin={moveToAdmin}
+                    showMore="no" />
+                )
+              } else {
+                return (
+                  <MemberItem
+                    key={admin._id}
+                    user={admin}
+                    role={2}
+                    removeUser={removeUser}
+                    moveToAdmin={moveToAdmin}
+                    showMore={Role === 1 || Role === 2 ? 'yes' : 'no'} />
+                )
+              }
+            })}
             {Group.members?.length !== 0 &&
             Group.members &&
             Group.members.map(member => (
@@ -264,6 +305,8 @@ const EditChat: React.FC<Props> = ({ changeLogged, history, match }) => {
                 key={member._id}
                 user={member}
                 role={3}
+                removeUser={removeUser}
+                moveToAdmin={moveToAdmin}
                 showMore={Role === 1 || Role === 2 ? 'yes' : 'no'}/>
             ))}
           </Members>
