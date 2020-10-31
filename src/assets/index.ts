@@ -35,13 +35,13 @@ import Pinterest from './icons/pinterest.png'
 import Instagram from './icons/instagram.png'
 
 // Register
-import BridgeResgister from './images/register/bridge-register.svg'
+import BridgeResgister from './images/register/bridge-register.jpg'
 
 // Login
-import BridgeLogin from './images/login/background-login.svg'
+import BridgeLogin from './images/login/background-login.jpg'
 
 // Questions
-import QuestionsIntroduction from './images/questions/background-questions.png'
+import QuestionsIntroduction from './images/questions/background-questions.jpg'
 
 // About
 import AboutIntroduction from './images/about/bg_about.png'
