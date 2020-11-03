@@ -117,7 +117,7 @@ const Explore: React.FC<Props> = ({ history, changeLogged }) => {
     <StyledExplore>
       <DivSearch url={BgExplore}>
         <Container>
-          <Phrase>Fasa sua pesquisa e encontre um parceiro ou parceira para  a sua próxima viagem</Phrase>
+          <Phrase>Faça sua pesquisa e encontre um parceiro ou parceira para  a sua próxima viagem</Phrase>
           <DivInput>
             <Input type="text" placeholder="Procurando alguém ?" onChange={(e) => setSearch(e.target.value)}/>
             <BsSearch onClick={async () => await search(Search)}/>
